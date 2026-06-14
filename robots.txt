@@ -5,8 +5,6 @@
 User-agent: Googlebot
 Allow: /
 Disallow: /assets/vendor/
-Disallow: /assets/css/
-Disallow: /assets/js/
 
 
 # ────────────────────────────────────────────────
@@ -15,8 +13,6 @@ Disallow: /assets/js/
 User-agent: Bingbot
 Allow: /
 Disallow: /assets/vendor/
-Disallow: /assets/css/
-Disallow: /assets/js/
 
 
 # ────────────────────────────────────────────────
