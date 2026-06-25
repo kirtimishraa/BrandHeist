@@ -1,6 +1,6 @@
 
 # ────────────────────────────────────────────────
-# GOOGLE — Full access to all indexable content
+# GOOGLE - Full access to all indexable content
 # ────────────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
@@ -31,12 +31,12 @@ User-agent: Yandex
 Allow: /
 
 # ────────────────────────────────────────────────
-# ALL OTHER BOTS — Global rules
+# ALL OTHER BOTS - Global rules
 # ────────────────────────────────────────────────
 User-agent: *
 Allow: /
 
-# Block vendor libraries — no SEO value, wastes crawl budget
+# Block vendor libraries - no SEO value, wastes crawl budget
 Disallow: /assets/vendor/
 Disallow: /assets/css/
 Disallow: /assets/js/

@@ -1,5 +1,5 @@
 /**
- * BrandHeist — Web3Forms AJAX Handler
+ * BrandHeist - Web3Forms AJAX Handler
  * Intercepts all .php-email-form submissions, posts via fetch,
  * then redirects to thank-you.html?form=<type> on success.
  */
