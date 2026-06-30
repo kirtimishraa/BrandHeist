@@ -491,7 +491,7 @@ section,
   margin: 0;
   color: var(--heading-color);
   font-family: var(--heading-font);
-  font-size: 38px;
+  font-size: 35px;
   font-weight: 800;
   line-height: 1.12;
 }
@@ -779,7 +779,7 @@ section,
 .arsenal .details h3 {
   max-width: 800px;
   margin: 0 0 18px;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 800;
 }
 

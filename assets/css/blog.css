@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   BrandHeist - Blog CSS
+   BrandHeist — Blog CSS
    Loaded on /blog/ and /blog/post-slug/ pages only.
    All brand tokens inherited from main.css via :root.
    ═══════════════════════════════════════════════════════════════ */
@@ -20,24 +20,20 @@
 }
 
 
-/* ── Blog page mini hero ──────────────────────────────────────── */
-.blog-hero {
-  position: relative;
-  padding: 130px 0 64px;
-  text-align: center;
+/* ── Accessible-only heading (keeps a single H1 for SEO without
+   showing a visible title block) ──────────────────────────────── */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
   overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.blog-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(244,182,61,0.07) 0%, transparent 70%),
-    linear-gradient(180deg, var(--background-color) 0%, var(--surface-color) 100%);
-}
-
-.blog-hero .container { position: relative; z-index: 2; }
 
 .blog-hero-eyebrow {
   display: inline-block;
@@ -50,27 +46,6 @@
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.blog-hero h1 {
-  font-family: var(--heading-font);
-  font-size: 48px;
-  font-weight: 800;
-  color: var(--heading-color);
-  line-height: 1.1;
-  margin-bottom: 14px;
-}
-
-.blog-hero p {
-  font-size: 17px;
-  color: rgba(255,250,238,0.65);
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-@media (max-width: 767px) {
-  .blog-hero h1 { font-size: 32px; }
-  .blog-hero    { padding: 110px 0 48px; }
 }
 
 
@@ -104,7 +79,7 @@
 
 
 /* ── Blog card grid ───────────────────────────────────────────── */
-.blog-listing { padding: 20px 0 90px; }
+.blog-listing { padding: 130px 0 90px; }
 
 .blog-card {
   border: 1px solid rgba(255,250,238,0.09);
@@ -123,7 +98,7 @@
   transform: translateY(-4px);
 }
 
-/* Cover - gradient placeholder until real images are added */
+/* Cover — gradient placeholder until real images are added */
 .blog-card-cover {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -237,38 +212,26 @@
 }
 
 
-/* ── Blog post hero ───────────────────────────────────────────── */
-.blog-post-hero {
-  padding: 130px 0 56px;
-  background: var(--surface-color);
-  border-bottom: 1px solid rgba(255,250,238,0.07);
-  position: relative;
+/* ── Blog post title block ──────────────────────────────────────── */
+.blog-post-title-block {
+  padding-bottom: 36px;
+  margin-bottom: 38px;
+  border-bottom: 1px solid rgba(255,250,238,0.08);
 }
 
-.blog-post-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 70% at 50% 0%,
-    rgba(244,182,61,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.blog-post-hero .container { position: relative; z-index: 2; }
-
-.blog-post-hero .blog-cat-pill {
+.blog-post-title-block .blog-cat-pill {
   position: static;
   display: inline-flex;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-.blog-post-hero h1 {
+.blog-post-title-block h1 {
   font-family: var(--heading-font);
-  font-size: 46px;
+  font-size: 42px;
   font-weight: 800;
   color: var(--heading-color);
-  line-height: 1.12;
-  margin-bottom: 24px;
+  line-height: 1.14;
+  margin-bottom: 20px;
   max-width: 800px;
 }
 
@@ -291,14 +254,13 @@
 .blog-post-meta i { font-size: 14px; }
 
 @media (max-width: 767px) {
-  .blog-post-hero h1 { font-size: 28px; }
-  .blog-post-hero    { padding: 110px 0 40px; }
+  .blog-post-title-block h1 { font-size: 26px; }
 }
 
 
 /* ── Blog post body layout ────────────────────────────────────── */
 .blog-post-body {
-  padding: 56px 0 80px;
+  padding: 130px 0 80px;
 }
 
 
@@ -740,5 +702,90 @@ details[open] .blog-faq-q i { transform: rotate(45deg); }
   .blog-toc {
     max-height: 280px;
     overflow-y: auto;
+  }
+}
+
+
+/* ── Blog newsletter CTA (matches site-wide form theme) ────────── */
+.blog-newsletter {
+  padding: 64px 0 84px;
+  border-top: 1px solid rgba(255, 250, 238, 0.07);
+}
+
+.blog-newsletter h2 {
+  font-family: var(--heading-font);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--heading-color);
+  margin-bottom: 12px;
+}
+
+.blog-newsletter > .container > .row > div > p {
+  color: rgba(255, 250, 238, 0.60);
+  margin-bottom: 28px;
+}
+
+.blog-newsletter .blog-hero-eyebrow {
+  margin-bottom: 18px;
+}
+
+/* Form layout — mirrors .footer .footer-newsletter .newsletter-form */
+.blog-newsletter .newsletter-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 0;
+}
+
+/* Email input — same tokens as footer newsletter / talk / get-free-audit inputs */
+.blog-newsletter .newsletter-form input[type="email"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  color: var(--heading-color);
+  background: rgba(255, 250, 238, 0.055);
+  border: 1px solid rgba(255, 250, 238, 0.14);
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.blog-newsletter .newsletter-form input[type="email"]::placeholder {
+  color: rgba(255, 250, 238, 0.46);
+}
+
+.blog-newsletter .newsletter-form input[type="email"]:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+/* Submit button — same tokens as footer newsletter / talk / get-free-audit buttons */
+.blog-newsletter .newsletter-form input[type="submit"] {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  font-weight: 900;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.blog-newsletter .newsletter-form input[type="submit"]:hover {
+  background: color-mix(in srgb, var(--accent-color), white 14%);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 575px) {
+  .blog-newsletter .newsletter-form {
+    flex-direction: column;
+  }
+
+  .blog-newsletter .newsletter-form input[type="submit"] {
+    width: 100%;
   }
 }
