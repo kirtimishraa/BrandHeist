@@ -1,0 +1,82 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI Overviews & Zero-Click Search: How to Rank When 83% of Searches Don't Click to Your Website",
+    "description": "Your rankings held. Your traffic didn't. Here's why AI Overviews are draining clicks and what actually works in 2026.",
+    "image": "https://www.brandheist.agency/assets/img/og-cover.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "BrandHeist",
+      "url": "https://www.brandheist.agency"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "BrandHeist",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.brandheist.agency/assets/img/brand-logo.jpg"
+      }
+    },
+    "datePublished": "2026-06-01",
+    "dateModified": "2026-06-01",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.brandheist.agency/blog/ai-overviews-zero-click-search-2026/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will AI Overviews go away eventually?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. This is Google's answer to ChatGPT, and it's working for them. Every search engine is moving in this direction. Adapt, don't wait."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "If I optimize for AI Overviews, will my regular Google traffic suffer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not if you do it right. Content optimised for AI Overviews also ranks better and converts better for humans - it's a win-win."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long until I see results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "30–60 days to start appearing in AI Overviews. Significant improvement takes 3–6 months of consistent effort."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this strategy different for different industries?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The principles are the same across all industries. The specific implementation details change, but the fundamental approach works everywhere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I don't have budget for a major content overhaul?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start small. Audit your top 5 traffic-generating articles. Make them 30% more comprehensive, add original insights, and improve structure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this apply to e-commerce, or just B2B?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It applies to everything - products, services, or solutions. If you rely on Google traffic, AI Overviews are affecting you."
+        }
+      }
+    ]
+  }
+]

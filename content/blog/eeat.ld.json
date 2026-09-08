@@ -1,0 +1,90 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "E-E-A-T for Small Indian Brands in 2026: What Actually Works (Without a Big Budget)",
+    "description": "Google's March 2026 update reshuffled 79.5% of top-3 positions. Trust is now the ranking. Here's the honest, practical E-E-A-T checklist BrandHeist gives small Indian brands.",
+    "image": "https://www.brandheist.agency/assets/img/og-cover.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "BrandHeist",
+      "url": "https://www.brandheist.agency"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "BrandHeist",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.brandheist.agency/assets/img/brand-logo.jpg"
+      }
+    },
+    "datePublished": "2026-07-09",
+    "dateModified": "2026-07-09",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.brandheist.agency/blog/eeat-2026-small-brands-trust-signals/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is E-E-A-T a Google ranking factor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not directly. E-E-A-T is the framework Google's human quality raters use to evaluate content. Their evaluations train the algorithm, so the signals it describes correlate strongly with rankings even though there is no single E-E-A-T score."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long before I see results after fixing E-E-A-T?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Some fixes show impact in 2 to 4 weeks, such as adding author bios, HTTPS, contact info, and FAQ schema. Building real authority through reviews, mentions, and backlinks takes 3 to 12 months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a small Indian business actually compete with big brands on E-E-A-T?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In your specific niche, yes. The 2026 core updates reward specificity and lived experience, which small brands often have more of than big brands. You cannot outrank Amazon for buy shoes online, but you can absolutely outrank generic content for niche queries you have real experience in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need paid SEO tools to fix E-E-A-T?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The 30-day plan uses free tools only: Google Search Console, Google Business Profile, LinkedIn, WhatsApp, and your own CMS. Paid tools help with tracking but do not build trust signals for you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does E-E-A-T also affect ChatGPT and AI Overviews?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Google's AI Overviews, ChatGPT, Perplexity, and Gemini all use similar signals to decide which sources to cite. Pages with strong E-E-A-T are 2.3x more likely to be cited in AI Overviews than higher-ranking pages with weak trust signals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I use AI to write blog content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI-assisted content is fine if a real person adds genuine expertise, examples, and review before publishing. Pure AI content that has not been edited, credited, or enriched with real experience is being actively demoted in 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the single most important E-E-A-T action to take first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add real author bios to every article and verify your Google Business Profile. Those two changes cover roughly half the trust signals Google is checking, take a few hours to do, and cost nothing."
+        }
+      }
+    ]
+  }
+]
