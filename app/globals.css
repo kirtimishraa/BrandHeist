@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Theme tokens (ported verbatim from original main.css) ───────────── */
+:root {
+  --background-color: #080806;
+  --default-color: rgba(255, 250, 238, 0.76);
+  --heading-color: #fffaf0;
+  --accent-color: #f4b63d;
+  --accent-2: #30d5c8;
+  --accent-3: #ff6a4a;
+  --surface-color: #14130f;
+  --surface-soft: #1f1c14;
+  --contrast-color: #090806;
+  --nav-color: #fffaf0;
+  --nav-hover-color: #f4b63d;
+  --nav-dropdown-background-color: #17150f;
+  scroll-behavior: smooth;
+}
+
+.dark-background {
+  --background-color: #070706;
+  --default-color: #fffaf0;
+  --heading-color: #ffffff;
+  --surface-color: #14130f;
+  --contrast-color: #090806;
+}
+
+.light-background {
+  --background-color: #17150f;
+  --surface-color: #211e16;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  color: var(--default-color);
+  background: linear-gradient(180deg, #080806 0%, #10100c 48%, #0b0a08 100%);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--font-bricolage), var(--font-inter), sans-serif;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+/* ── Section title (Menu / Arsenal / etc.) ──────────────────────────── */
+.section-title h2 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin: 0 0 8px;
+}
+
+.section-title p {
+  font-family: var(--font-bricolage), sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* ── Form status messages (ported from main.css) ────────────────────── */
+.form-msg {
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.form-msg.error {
+  color: #ffffff;
+  background: #d72f3f;
+  text-align: left;
+}
+.form-msg.sent {
+  color: #062314;
+  background: #50e3a4;
+  text-align: center;
+}
+.form-msg.loading {
+  color: var(--heading-color);
+  background: var(--surface-soft);
+  text-align: center;
+}
+
+/* ── Infinite logo marquee (replaces Swiper autoplay loop) ──────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
