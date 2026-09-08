@@ -9,7 +9,7 @@ const inputClass =
 export default function Talk() {
   return (
     <section id="talk" className="py-20">
-      <div className="section-title container mx-auto mb-12 max-w-7xl px-4 text-center">
+      <div className="section-title container mx-auto mb-12 max-w-7xl px-4">
         <h2>Let&apos;s Talk</h2>
         <p>Don&apos;t Be Shy We&rsquo;re Nicer Than We Look</p>
       </div>
@@ -33,7 +33,7 @@ export default function Talk() {
               <input type="text" name="business_contact" placeholder="Website URL or Business Name" required className={`${inputClass} mt-4`} />
               <textarea name="message" rows={6} placeholder="Message" required className={`${inputClass} mt-4`} />
               <div className="mt-5 text-center">
-                <button type="submit" className="rounded-xl bg-accent px-8 py-3.5 font-extrabold text-contrast transition hover:brightness-110 hover:-translate-y-0.5">
+                <button type="submit" className="rounded-xl bg-accent px-6 py-3 font-extrabold text-contrast transition hover:brightness-110 hover:-translate-y-0.5">
                   Send Message
                 </button>
               </div>

@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 export default function Crew() {
   return (
     <section id="crew" className="py-20">
-      <div className="section-title container mx-auto mb-12 max-w-7xl px-4 text-center">
+      <div className="section-title container mx-auto mb-12 max-w-7xl px-4">
         <h2>The Crew</h2>
         <p>Mischief Minds Built For Virality</p>
       </div>

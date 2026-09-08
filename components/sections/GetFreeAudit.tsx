@@ -8,7 +8,7 @@ const inputClass =
 export default function GetFreeAudit() {
   return (
     <section id="get-free-audit" className="py-20">
-      <div className="section-title container mx-auto mb-10 max-w-7xl px-4 text-center">
+      <div className="section-title container mx-auto mb-10 max-w-7xl px-4">
         <h2>Audits</h2>
         <p>This One&rsquo;s On Us</p>
       </div>
@@ -26,7 +26,7 @@ export default function GetFreeAudit() {
           </div>
           <textarea name="message" rows={5} placeholder="What should we audit first?" className={`${inputClass} mt-4`} />
           <div className="mt-5 text-center">
-            <button type="submit" className="rounded-xl bg-accent px-8 py-3.5 font-extrabold text-contrast transition hover:brightness-110 hover:-translate-y-0.5">
+            <button type="submit" className="rounded-xl bg-accent px-6 py-3 font-extrabold text-contrast transition hover:brightness-110 hover:-translate-y-0.5">
               Request Free Audit
             </button>
           </div>

@@ -6,7 +6,7 @@ export default function Flex() {
   const loop = [...clients, ...clients]; // duplicate for seamless marquee
   return (
     <section id="flex" className="py-20">
-      <div className="section-title container mx-auto mb-12 max-w-7xl px-4 text-center">
+      <div className="section-title container mx-auto mb-12 max-w-7xl px-4">
         <h2>The Flex</h2>
         <p>Brands We Have Worked With</p>
       </div>

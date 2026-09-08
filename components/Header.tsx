@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { BsChevronDown, BsList, BsX } from "react-icons/bs";
 import { menuNav } from "@/content/site-data";
@@ -39,10 +38,9 @@ export default function Header() {
     >
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between h-[72px]">
-          {/* Logo */}
-          <Link href="/" aria-label="BrandHeist home" className="flex items-center gap-2.5 shrink-0" onClick={closeMobile}>
-            <Image src="/assets/img/brandheist-logo.svg" alt="BrandHeist logo" width={44} height={44} priority />
-            <span className="font-heading text-xl font-extrabold text-heading">BrandHeist</span>
+          {/* Wordmark (text only) */}
+          <Link href="/" aria-label="BrandHeist home" className="flex items-center shrink-0" onClick={closeMobile}>
+            <span className="font-heading text-xl font-extrabold text-accent">BrandHeist</span>
           </Link>
 
           {/* Desktop nav */}
