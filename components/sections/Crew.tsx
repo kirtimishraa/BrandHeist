@@ -6,16 +6,16 @@ import Reveal from "@/components/Reveal";
 export default function Crew() {
   return (
     <section id="crew" className="py-20">
-      <div className="section-title container mx-auto mb-12 max-w-7xl px-4">
+      <Reveal className="section-title container mx-auto mb-12 max-w-7xl px-4">
         <h2>The Crew</h2>
         <p>Mischief Minds Built For Virality</p>
-      </div>
+      </Reveal>
 
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {crew.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.1}>
-              <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
+              <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-[transform,border-color] duration-300 hover:-translate-y-1.5 hover:border-accent/40">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={m.img}

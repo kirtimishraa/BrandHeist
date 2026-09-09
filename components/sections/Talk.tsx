@@ -9,10 +9,10 @@ const inputClass =
 export default function Talk() {
   return (
     <section id="talk" className="py-20">
-      <div className="section-title container mx-auto mb-12 max-w-7xl px-4">
+      <Reveal className="section-title container mx-auto mb-12 max-w-7xl px-4">
         <h2>Let&apos;s Talk</h2>
         <p>Don&apos;t Be Shy We&rsquo;re Nicer Than We Look</p>
-      </div>
+      </Reveal>
 
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid gap-8 lg:grid-cols-3">

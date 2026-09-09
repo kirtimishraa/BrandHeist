@@ -8,10 +8,10 @@ const inputClass =
 export default function GetFreeAudit() {
   return (
     <section id="get-free-audit" className="py-20">
-      <div className="section-title container mx-auto mb-10 max-w-7xl px-4">
+      <Reveal className="section-title container mx-auto mb-10 max-w-7xl px-4">
         <h2>Audits</h2>
         <p>This One&rsquo;s On Us</p>
-      </div>
+      </Reveal>
 
       <Reveal className="container mx-auto max-w-4xl px-4">
         <Web3Form

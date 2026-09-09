@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 
-// Scroll-into-view reveal — replaces the old AOS fade-up / zoom-in.
+const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
+
+// Single scroll-into-view reveal (replaces the old AOS fade-up / zoom-in).
 export default function Reveal({
   children,
   delay = 0,
@@ -20,9 +22,42 @@ export default function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 0.61, 0.36, 1] }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, delay, ease: EASE }}
     >
+      {children}
+    </motion.div>
+  );
+}
+
+// ── Stagger: children cascade in one-by-one as the container enters view ──
+export const staggerContainer: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
+
+export const staggerItem: Variants = {
+  hidden: { opacity: 0, y: 26 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
+};
+
+export function Stagger({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <motion.div
+      className={className}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-80px" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <motion.div className={className} variants={staggerItem}>
       {children}
     </motion.div>
   );

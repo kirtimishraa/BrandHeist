@@ -8,10 +8,10 @@ import Reveal from "@/components/Reveal";
 export default function Arsenal() {
   return (
     <section id="arsenal" className="py-20">
-      <div className="section-title container mx-auto mb-12 max-w-7xl px-4">
+      <Reveal className="section-title container mx-auto mb-12 max-w-7xl px-4">
         <h2>The Arsenal</h2>
         <p>The Tech We Trust</p>
-      </div>
+      </Reveal>
 
       <Reveal className="container mx-auto max-w-7xl px-4">
         <Tabs.Root defaultValue={arsenal[0].id} className="grid gap-6 lg:grid-cols-3">
