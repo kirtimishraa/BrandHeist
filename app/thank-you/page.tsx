@@ -20,7 +20,10 @@ export default function ThankYouPage() {
           <div className="flex h-[72px] items-center justify-between">
             <Link href="/" aria-label="BrandHeist - Go home" className="flex items-center gap-2.5">
               <Image src="/assets/img/brandheist-logo.svg" alt="BrandHeist logo" width={44} height={44} />
-              <span className="font-heading text-xl font-extrabold text-accent">BrandHeist</span>
+              <span className="font-heading text-xl font-extrabold">
+                <span className="text-heading">Brand</span>
+                <span className="text-accent">Heist</span>
+              </span>
             </Link>
             <Link href="/#get-free-audit" className="hidden items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-extrabold text-contrast hover:brightness-110 xl:inline-flex">
               Free Website Audit <BsArrowRight />

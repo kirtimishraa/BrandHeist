@@ -24,7 +24,10 @@ export default function Footer() {
           <div>
             <Link href="/" aria-label="BrandHeist home" className="flex items-center gap-2.5">
               <Image src="/assets/img/brandheist-logo.svg" alt="BrandHeist logo" width={44} height={44} />
-              <span className="font-heading text-xl font-extrabold text-accent">BrandHeist</span>
+              <span className="font-heading text-xl font-extrabold">
+                <span className="text-heading">Brand</span>
+                <span className="text-accent">Heist</span>
+              </span>
             </Link>
             <div className="mt-4 space-y-2 text-sm text-[#fffaf0]/70">
               <p>{site.address}</p>

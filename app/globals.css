@@ -32,6 +32,20 @@
   --surface-color: #211e16;
 }
 
+/* ── shadcn-compatible tokens (RGB triplets → Tailwind alpha support).
+   Mapped to the BrandHeist theme so shadcn/ui components match the theme. */
+:root {
+  --foreground: 255 250 240;      /* heading white */
+  --card: 20 19 15;               /* surface */
+  --card-foreground: 255 250 240;
+  --primary: 244 182 61;          /* accent gold #f4b63d */
+  --primary-foreground: 9 8 6;    /* contrast */
+  --secondary: 31 28 20;          /* surface-soft */
+  --secondary-foreground: 255 250 240;
+  --border: 255 250 238;          /* used at low alpha */
+  --ring: 244 182 61;
+}
+
 html,
 body {
   overflow-x: hidden;
