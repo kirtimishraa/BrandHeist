@@ -10,7 +10,7 @@ const USEFUL_LINKS = [
   { label: "Arsenal", href: "/#arsenal" },
   { label: "Menu", href: "/#menu" },
   { label: "Blogs", href: "/blog/" },
-  { label: "Crew", href: "/#crew" },
+  // { label: "Crew", href: "/#crew" }, // Crew section hidden for now
 ];
 
 const MENU_LINKS = ["SEO & Socials", "Growth Marketing", "Design & Motion", "Web Development", "Content"];

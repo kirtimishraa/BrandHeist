@@ -41,20 +41,18 @@ const NAV_ITEMS: LimelightNavItem[] = [
   { id: "flex", label: "The Flex", href: "/#flex" },
   { id: "arsenal", label: "The Arsenal", href: "/#arsenal" },
   { id: "menu", label: "The Menu", href: "/#menu", dropdown: <MegaMenu /> },
-  { id: "crew", label: "The Crew", href: "/#crew" },
+  // Crew section hidden for now
+  // { id: "crew", label: "The Crew", href: "/#crew" },
   { id: "blog", label: "Blogs", href: "/blog/" },
   { id: "talk", label: "Let's Talk", href: "/#talk" },
 ];
 
+const navIndex = (id: string) => NAV_ITEMS.findIndex((i) => i.id === id);
+
 // Home-page sections → NAV_ITEMS index, for scroll-spy (Blogs has no section)
-const SPY = [
-  { id: "home", index: 0 },
-  { id: "flex", index: 1 },
-  { id: "arsenal", index: 2 },
-  { id: "menu", index: 3 },
-  { id: "crew", index: 4 },
-  { id: "talk", index: 6 },
-];
+const SPY = ["home", "flex", "arsenal", "menu", "crew", "talk"]
+  .map((id) => ({ id, index: navIndex(id) }))
+  .filter((s) => s.index !== -1);
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -66,7 +64,7 @@ export default function Header() {
   useEffect(() => {
     // Blog pages have no hero/sections — keep nav themed and "Blogs" active.
     if (pathname?.startsWith("/blog")) {
-      setActiveIndex(5);
+      setActiveIndex(navIndex("blog"));
       setScrolled(true);
       return;
     }
@@ -181,9 +179,11 @@ export default function Header() {
                   )}
                 </AnimatePresence>
               </li>
+              {/* Crew section hidden for now
               <li>
                 <Link href="/#crew" onClick={closeMobile} className="block py-2.5 text-[#fffaf0]/85 hover:text-accent">The Crew</Link>
               </li>
+              */}
               <li>
                 <Link href="/blog/" onClick={closeMobile} className="block py-2.5 text-[#fffaf0]/85 hover:text-accent">Blogs</Link>
               </li>
