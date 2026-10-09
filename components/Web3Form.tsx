@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { track } from "@/lib/analytics";
 
 type FormName = "get-audit" | "contact-us" | "newsletter";
 
@@ -41,13 +42,8 @@ export default function Web3Form({
     const form = e.currentTarget;
     setState("loading");
 
-    // GA4 event (matches original inline tracking)
-    if (typeof window !== "undefined" && (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag) {
-      (window as unknown as { gtag: (...a: unknown[]) => void }).gtag("event", GA_EVENT_MAP[name], {
-        form_name: name,
-        form_location: window.location.href,
-      });
-    }
+    // GTM dataLayer event (GA4 event is mapped in the GTM container)
+    track(GA_EVENT_MAP[name], { form_name: name, form_location: window.location.href });
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {

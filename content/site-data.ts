@@ -3,7 +3,7 @@
 
 export const site = {
   name: "BrandHeist",
-  gaId: "G-XK27KGN0RG",
+  gtmId: "GTM-W68VKSJF",
   phoneDisplay: "+91 9137920469",
   phoneHref: "tel:+919137920469",
   email: "heist@brandheist.agency",

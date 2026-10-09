@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { BsArrowLeft, BsArrowRight, BsWhatsapp } from "react-icons/bs";
 import { site } from "@/content/site-data";
+import { track } from "@/lib/analytics";
 
 type Cfg = { tag: string; title: string; body: string; steps: string[] | null; waMsg: string };
 
@@ -48,8 +49,7 @@ export default function ThankYouContent() {
   const d = CONFIG[key] || CONFIG.contact;
 
   useEffect(() => {
-    const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
-    if (g) g("event", "form_submission_complete", { form_type: key, page_title: document.title });
+    track("form_submission_complete", { form_type: key, page_title: document.title });
   }, [key]);
 
   return (

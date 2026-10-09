@@ -2,11 +2,11 @@
 
 import { BsWhatsapp, BsTelephone } from "react-icons/bs";
 import { site } from "@/content/site-data";
+import { track } from "@/lib/analytics";
 
-// Fires the phone_click GA4 event the original inlined for tel: links.
+// Pushes the phone_click event (the original inlined it for tel: links).
 function trackPhone(href: string) {
-  const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
-  if (g) g("event", "phone_click", { link_url: href, link_text: "Call BrandHeist" });
+  track("phone_click", { link_url: href, link_text: "Call BrandHeist" });
 }
 
 export default function FloatingButtons() {
