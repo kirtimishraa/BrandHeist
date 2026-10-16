@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        // short portrait phones (e.g. iPhone SE): the hero tightens so it ends above the video's subject
+        short: { raw: "(orientation: portrait) and (max-height: 700px)" },
+      },
       colors: {
         heading: "var(--heading-color)",
         contrast: "var(--contrast-color)",

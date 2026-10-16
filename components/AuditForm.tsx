@@ -3,9 +3,10 @@ import Web3Form from "@/components/Web3Form";
 
 // `peer` lets the error line below each field react to the field's validity.
 // `:user-invalid` only matches after the visitor has interacted (or tried to submit),
-// so nobody sees red before they've typed anything.
+// so nobody sees red before they've typed anything. Vertical padding is set per variant;
+// text stays 16px so iPhones don't zoom in on focus.
 const inputClass =
-  "peer w-full rounded-xl border border-transparent bg-white/[0.06] px-4 py-3 text-heading placeholder:text-[#fffaf0]/35 transition-[border-color,box-shadow,background-color] duration-200 focus:border-accent/20 focus:bg-white/[0.08] focus:outline-none focus:ring-4 focus:ring-accent/[0.06] [&:user-invalid]:border-accent-3/50";
+  "peer w-full rounded-xl border border-transparent bg-white/[0.06] px-4 text-heading placeholder:text-[#fffaf0]/35 transition-[border-color,box-shadow,background-color] duration-200 focus:border-accent/20 focus:bg-white/[0.08] focus:outline-none focus:ring-4 focus:ring-accent/[0.06] [&:user-invalid]:border-accent-3/50";
 
 const labelClass = "mb-1.5 block text-[13px] font-medium text-[#fffaf0]/75";
 const hintClass = "mt-1.5 block text-xs text-[#fffaf0]/45 peer-[:user-invalid]:hidden";
@@ -45,6 +46,8 @@ export default function AuditForm({
   source?: string;
 }) {
   const popup = variant === "popup";
+  // popup on phones: tighter fields so the whole form fits a small card
+  const input = `${inputClass} ${popup ? "py-2 sm:py-3" : "py-3"}`;
   return (
     <Web3Form
       name="get-audit"
@@ -52,22 +55,23 @@ export default function AuditForm({
       sentMessage="Request sent. Taking you to the next step…"
     >
       <input type="hidden" name="source" value={source} />
-      <div className={popup ? "grid grid-cols-1 gap-4 sm:grid-cols-2" : "grid grid-cols-1 gap-4 md:grid-cols-3"}>
+      <div className={popup ? "grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4" : "grid grid-cols-1 gap-4 md:grid-cols-3"}>
         <Field label="Your name" error="Please add your name so we know who to reply to.">
-          <input type="text" name="name" placeholder="Elon Musk" autoComplete="name" required className={inputClass} />
+          <input type="text" name="name" placeholder="Elon Musk" autoComplete="name" required className={input} />
         </Field>
         <Field label="Phone" error="Please add a phone number we can call or WhatsApp.">
-          <input type="tel" name="phone" placeholder="Your mobile number" autoComplete="tel" inputMode="tel" minLength={7} required className={inputClass} />
+          <input type="tel" name="phone" placeholder="Your mobile number" autoComplete="tel" inputMode="tel" minLength={7} required className={input} />
         </Field>
         <Field
           label="Website or business name"
           error="Please add your website or business name."
           className={popup ? "sm:col-span-2" : ""}
         >
-          <input type="text" name="business" placeholder="e.g. www.spacex.com" autoComplete="organization" required className={inputClass} />
+          <input type="text" name="business" placeholder="e.g. www.spacex.com" autoComplete="organization" required className={input} />
         </Field>
       </div>
-      <label className={`block ${popup ? "mt-4" : "mt-4"}`}>
+      {/* Optional field: left out of the popup on phones to keep the card small (the page form still has it) */}
+      <label className={`block ${popup ? "mt-4 hidden sm:block" : "mt-4"}`}>
         <span className={labelClass}>
           Anything we should know? <span className="text-[#fffaf0]/40">(optional)</span>
         </span>
@@ -75,17 +79,17 @@ export default function AuditForm({
           name="message"
           rows={popup ? 3 : 4}
           placeholder="e.g. We build rockets and spacecraft and want to sell more this Diwali"
-          className={`${inputClass} resize-none`}
+          className={`${input} resize-none`}
         />
       </label>
-      <div className={popup ? "mt-5" : "mt-6 text-center"}>
+      <div className={popup ? "mt-4 sm:mt-5" : "mt-6 text-center"}>
         <button
           type="submit"
-          className={`rounded-xl bg-accent px-6 py-3 font-extrabold text-contrast transition hover:brightness-110 hover:-translate-y-0.5 disabled:translate-y-0 disabled:cursor-wait disabled:opacity-60 ${popup ? "w-full" : ""}`}
+          className={`rounded-xl bg-accent px-6 font-extrabold text-contrast transition hover:brightness-110 hover:-translate-y-0.5 disabled:translate-y-0 disabled:cursor-wait disabled:opacity-60 ${popup ? "w-full py-2.5 sm:py-3" : "py-3"}`}
         >
           Get My Diwali Plan
         </button>
-        <p className="mt-3 text-xs text-[#fffaf0]/45">We usually reply within 24 hours.</p>
+        <p className={`${popup ? "mt-2 sm:mt-3" : "mt-3"} text-xs text-[#fffaf0]/45`}>We usually reply within 24 hours.</p>
       </div>
     </Web3Form>
   );

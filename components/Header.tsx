@@ -119,11 +119,11 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-1 sm:gap-3">
-          {/* Primary action: visible at every width (compact on phones) */}
+          {/* Primary action: visible at every width. Phones: same size/shape as the hero buttons (36px, 10px radius, 12px bold) */}
           <Link
             href="/#get-free-audit"
             onClick={closeMobile}
-            className="inline-flex min-h-[44px] items-center whitespace-nowrap rounded-lg bg-accent px-2.5 text-xs font-extrabold min-[360px]:px-3 min-[360px]:text-[13px] text-contrast transition hover:brightness-110 sm:px-4 sm:text-sm"
+            className="inline-flex h-9 items-center whitespace-nowrap rounded-[10px] bg-accent px-3.5 text-xs font-bold text-contrast transition hover:brightness-110 sm:h-auto sm:min-h-[44px] sm:rounded-lg sm:px-4 sm:text-sm sm:font-extrabold"
           >
             Get My Diwali Plan
           </Link>
@@ -131,7 +131,7 @@ export default function Header() {
           {/* Mobile toggle — 44px tap target */}
           <button
             type="button"
-            className="-mr-2 grid h-11 w-11 place-items-center text-2xl text-heading lg:hidden"
+            className="-mr-2 grid h-11 w-11 place-items-center text-[22px] text-heading sm:text-2xl lg:hidden"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={mobileOpen}
