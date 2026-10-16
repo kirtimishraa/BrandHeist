@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
 const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
@@ -25,39 +25,6 @@ export default function Reveal({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay, ease: EASE }}
     >
-      {children}
-    </motion.div>
-  );
-}
-
-// ── Stagger: children cascade in one-by-one as the container enters view ──
-export const staggerContainer: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-};
-
-export const staggerItem: Variants = {
-  hidden: { opacity: 0, y: 26 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
-};
-
-export function Stagger({ children, className }: { children: ReactNode; className?: string }) {
-  return (
-    <motion.div
-      className={className}
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
-  return (
-    <motion.div className={className} variants={staggerItem}>
       {children}
     </motion.div>
   );

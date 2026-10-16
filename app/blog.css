@@ -720,7 +720,7 @@ details[open] .blog-faq-q i { transform: rotate(45deg); }
   margin-bottom: 12px;
 }
 
-.blog-newsletter > .container > .row > div > p {
+.blog-newsletter-inner > p {
   color: rgba(255, 250, 238, 0.60);
   margin-bottom: 28px;
 }
@@ -744,18 +744,22 @@ details[open] .blog-faq-q i { transform: rotate(45deg); }
   min-height: 48px;
   padding: 12px 14px;
   color: var(--heading-color);
-  background: rgba(255, 250, 238, 0.055);
-  border: 1px solid rgba(255, 250, 238, 0.14);
-  border-radius: 8px;
+  background: rgba(255, 250, 238, 0.06);
+  border: 1px solid transparent;
+  border-radius: 12px;
   box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .blog-newsletter .newsletter-form input[type="email"]::placeholder {
   color: rgba(255, 250, 238, 0.46);
 }
 
+/* Borderless at rest; soft focus: faint gold edge + very light glow, matching the site forms */
 .blog-newsletter .newsletter-form input[type="email"]:focus {
-  border-color: var(--accent-color);
+  border-color: rgba(244, 182, 61, 0.2);
+  background: rgba(255, 250, 238, 0.08);
+  box-shadow: 0 0 0 4px rgba(244, 182, 61, 0.06);
   outline: none;
 }
 
@@ -770,7 +774,7 @@ details[open] .blog-faq-q i { transform: rotate(45deg); }
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 1px solid var(--accent-color);
-  border-radius: 8px;
+  border-radius: 12px;
   font-weight: 900;
   transition: background-color 0.25s ease, transform 0.25s ease;
 }

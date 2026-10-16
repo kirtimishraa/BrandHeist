@@ -11,8 +11,9 @@ export default function Home() {
     <>
       <Hero />
       <Flex />
-      <Arsenal />
+      {/* Services before tools: what we do matters more to a buyer than how */}
       <Menu />
+      <Arsenal />
       <GetFreeAudit />
       {/* <Crew /> */}
       <Talk />

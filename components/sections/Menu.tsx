@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { services, serviceFilters, type ServiceCategory } from "@/content/site-data";
 import Reveal from "@/components/Reveal";
+import { SERVICE_EVENT, takePendingService } from "@/lib/service-nav";
 
 const EASE: [number, number, number, number] = [0.22, 0.61, 0.36, 1];
 
@@ -12,26 +12,57 @@ export default function Menu() {
   const [active, setActive] = useState<ServiceCategory>("seo");
   const shown = services.filter((s) => s.category === active);
 
+  // Open on the category picked in the nav (mega menu / mobile drawer).
+  useEffect(() => {
+    const pending = takePendingService();
+    if (pending) setActive(pending);
+    const onPick = (e: Event) => {
+      const key = (e as CustomEvent<ServiceCategory>).detail;
+      setActive(key);
+      takePendingService(); // consumed here, don't re-apply on a later mount
+    };
+    window.addEventListener(SERVICE_EVENT, onPick);
+    return () => window.removeEventListener(SERVICE_EVENT, onPick);
+  }, []);
+
+  // Phones: keep the selected chip in view in the swipeable row (e.g. "Content" picked
+  // from the nav). Scrolls the row only, never the page.
+  const filtersRef = useRef<HTMLUListElement>(null);
+  useEffect(() => {
+    const row = filtersRef.current;
+    const chip = row?.querySelector<HTMLElement>(`[data-key="${active}"]`);
+    if (!row || !chip || row.scrollWidth <= row.clientWidth) return;
+    row.scrollTo({ left: chip.offsetLeft - (row.clientWidth - chip.offsetWidth) / 2, behavior: "smooth" });
+  }, [active]);
+
   return (
-    <section id="menu" className="py-20">
+    <section id="menu" className="border-y border-white/[0.06] bg-white/[0.025] py-24 md:py-32">
       <Reveal className="section-title container mx-auto mb-10 max-w-7xl px-4">
         <h2>The Menu</h2>
         <p>What We Serve</p>
       </Reveal>
 
       <div className="container mx-auto max-w-7xl px-4">
-        {/* Filters */}
+        {/* Filters: the selected one is tinted (not a solid gold button, which is reserved for actions).
+            Phones: one swipeable row (edge-faded, edge-to-edge) instead of ragged wrapped rows;
+            sm+: centred and wrapping. */}
         <Reveal>
-          <ul className="mb-10 flex flex-wrap justify-center gap-2" aria-label="Service filters">
+          <ul
+            ref={filtersRef}
+            className="-mx-4 mb-10 flex gap-2 overflow-x-auto px-4 [mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%-32px),transparent)] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 sm:[mask-image:none] [&::-webkit-scrollbar]:hidden"
+            aria-label="Service filters"
+          >
             {serviceFilters.map((f) => (
-              <li key={f.key}>
+              <li key={f.key} className="shrink-0">
                 <button
+                  type="button"
+                  data-key={f.key}
                   onClick={() => setActive(f.key)}
                   aria-pressed={active === f.key}
-                  className={`rounded-full px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5 ${
+                  className={`inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full px-5 text-sm font-semibold transition-colors ${
                     active === f.key
-                      ? "bg-accent text-contrast"
-                      : "border border-white/10 bg-white/[0.03] text-[#fffaf0]/70 hover:border-accent/40 hover:text-heading"
+                      ? "bg-accent/15 text-accent"
+                      : "bg-white/[0.04] text-[#fffaf0]/70 hover:bg-white/[0.07] hover:text-heading"
                   }`}
                 >
                   {f.label}
@@ -41,7 +72,7 @@ export default function Menu() {
           </ul>
         </Reveal>
 
-        {/* Grid */}
+        {/* Grid — informational cards (not links), so no hover lift that would suggest a click */}
         <motion.div layout className="grid gap-5 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
             {shown.map((s, i) => (
@@ -53,11 +84,9 @@ export default function Menu() {
                 viewport={{ once: true, margin: "-60px" }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.4, delay: Math.min(i, 8) * 0.05, ease: EASE }}
-                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[0.05]"
+                className="rounded-2xl bg-white/[0.03] p-6"
               >
-                <Link href="#menu" className="font-heading text-lg font-bold text-heading transition-colors group-hover:text-accent">
-                  {s.title}
-                </Link>
+                <h3 className="font-heading text-lg font-bold text-heading">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#fffaf0]/65">{s.tech}</p>
               </motion.div>
             ))}

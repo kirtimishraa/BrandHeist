@@ -4,51 +4,47 @@
 
 /* ── Theme tokens (ported verbatim from original main.css) ───────────── */
 :root {
-  --background-color: #080806;
   --default-color: rgba(255, 250, 238, 0.76);
   --heading-color: #fffaf0;
   --accent-color: #f4b63d;
   --accent-2: #30d5c8;
   --accent-3: #ff6a4a;
+  /* RGB triplets of the accents, so Tailwind opacity modifiers (bg-accent/10) work */
+  --accent-rgb: 244 182 61;
+  --accent-2-rgb: 48 213 200;
+  --accent-3-rgb: 255 106 74;
   --surface-color: #14130f;
   --surface-soft: #1f1c14;
   --contrast-color: #090806;
-  --nav-color: #fffaf0;
-  --nav-hover-color: #f4b63d;
-  --nav-dropdown-background-color: #17150f;
+  /* Font stacks used by blog.css (mapped to the next/font variables on <html>) */
+  --heading-font: var(--font-bricolage), var(--font-inter), sans-serif;
+  --nav-font: var(--font-manrope), var(--font-inter), sans-serif;
   scroll-behavior: smooth;
 }
 
 .dark-background {
-  --background-color: #070706;
   --default-color: #fffaf0;
   --heading-color: #ffffff;
   --surface-color: #14130f;
   --contrast-color: #090806;
 }
 
-.light-background {
-  --background-color: #17150f;
-  --surface-color: #211e16;
-}
-
-/* ── shadcn-compatible tokens (RGB triplets → Tailwind alpha support).
-   Mapped to the BrandHeist theme so shadcn/ui components match the theme. */
+/* ── RGB-triplet tokens (Tailwind alpha support) used by the nav (limelight) ── */
 :root {
   --foreground: 255 250 240;      /* heading white */
-  --card: 20 19 15;               /* surface */
-  --card-foreground: 255 250 240;
   --primary: 244 182 61;          /* accent gold #f4b63d */
-  --primary-foreground: 9 8 6;    /* contrast */
-  --secondary: 31 28 20;          /* surface-soft */
-  --secondary-foreground: 255 250 240;
-  --border: 255 250 238;          /* used at low alpha */
-  --ring: 244 182 61;
 }
 
 html,
 body {
   overflow-x: hidden;
+}
+
+/* Dark canvas under the page: without it, over-scrolling (rubber-band / pull past
+   the top or bottom) reveals the browser's default white behind the transparent nav. */
+html {
+  background-color: #080806;
+  color-scheme: dark;
 }
 
 body {
@@ -128,15 +124,135 @@ h6 {
   to { transform: translateX(-50%); }
 }
 
-/* Slow Ken-Burns zoom on the hero background */
-.hero-zoom {
-  animation: hero-zoom 20s ease-in-out infinite alternate;
+/* ── Thin, unobtrusive scrollbar (popup). Only appears when content overflows
+   (overflow-y: auto). Chromium/Safari use the ::-webkit pseudo-elements; the
+   standard properties go only to browsers without them (Firefox), because
+   Chromium ignores the pseudo-elements once the standard ones are set. ── */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 4px;
 }
-@keyframes hero-zoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 250, 238, 0.18);
+  border-radius: 9999px;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 250, 238, 0.3);
+}
+@supports not selector(::-webkit-scrollbar) {
+  .thin-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 250, 238, 0.18) transparent;
+  }
 }
 
+/* ── Footer sign-off: the cheeky, roast-y margin note ───────────────── */
+/* Coral highlighter stroke behind "red flag" — slightly uneven, like a real marker */
+.roast-highlight {
+  color: var(--accent-3);
+  padding: 0 0.12em;
+  margin: 0 -0.04em;
+  background: linear-gradient(
+    100deg,
+    transparent 2%,
+    rgba(255, 106, 74, 0.24) 4%,
+    rgba(255, 106, 74, 0.2) 92%,
+    transparent 96%
+  ) 0 62% / 100% 46% no-repeat;
+}
+
+/* Hand-drawn gold squiggle under "Marry us": faint at rest, redraws on hover/focus */
+.marry-squiggle {
+  position: absolute;
+  left: 0;
+  bottom: -0.12em;
+  width: 100%;
+  height: 0.32em;
+  overflow: visible;
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+.marry-link:hover .marry-squiggle,
+.marry-link:focus-visible .marry-squiggle {
+  opacity: 1;
+  animation: marry-squiggle-draw 0.6s ease-out;
+}
+@keyframes marry-squiggle-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* The ring gets a little "will you?" wiggle on hover */
+.marry-link:hover .marry-ring,
+.marry-link:focus-visible .marry-ring {
+  animation: marry-ring-wiggle 0.7s ease-in-out;
+}
+@keyframes marry-ring-wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-16deg) scale(1.15); }
+  45% { transform: rotate(12deg) scale(1.15); }
+  70% { transform: rotate(-6deg) scale(1.08); }
+}
+.marry-link:focus-visible {
+  outline: 2px solid rgba(244, 182, 61, 0.5);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* ── Festive (Diwali) hero decor ────────────────────────────────────── */
+.fairy-bulb {
+  animation: twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Hero entrance — pure CSS so the headline paints before JS hydrates */
+.hero-in {
+  animation: hero-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Shimmering saffron→gold text (drop-shadow, since text-shadow muddies clipped text) */
+.festive-gradient-text {
+  background: linear-gradient(90deg, #ffd36b 0%, #f4b63d 25%, #ff8a3d 50%, #f4b63d 75%, #ffd36b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 16px rgba(0, 0, 0, 0.55));
+  animation: festive-shimmer 6s linear infinite;
+}
+@keyframes festive-shimmer {
+  to { background-position: 200% center; }
+}
+
+/* Light sweep across the primary CTA */
+.festive-sweep {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: festive-sweep 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes festive-sweep {
+  0%, 55% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,

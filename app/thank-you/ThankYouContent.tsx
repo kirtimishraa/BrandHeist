@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { BsArrowLeft, BsArrowRight, BsWhatsapp } from "react-icons/bs";
+import { BsArrowLeft, BsWhatsapp } from "react-icons/bs";
 import { site } from "@/content/site-data";
 import { track } from "@/lib/analytics";
 
@@ -13,26 +13,15 @@ type Cfg = { tag: string; title: string; body: string; steps: string[] | null; w
 
 const CONFIG: Record<string, Cfg> = {
   audit: {
-    tag: "Audit Requested",
-    title: "Your audit is in the queue.",
-    body: "We'll dig into your site and come back with real, actionable findings - usually within 24 hours.",
+    tag: "Diwali Plan Requested",
+    title: "Your Diwali plan is on its way.",
+    body: "We'll look at your business and come back with a festive plan built for it, usually within 24 hours.",
     steps: [
-      "We audit your site for SEO, speed, and conversion gaps",
-      "We put together a clear, tailored findings report",
-      "We reach out to walk you through every finding",
+      "We review your business, website and current channels",
+      "We map out your festive posts, ads and WhatsApp enquiries",
+      "We call you to walk through the plan and get it live",
     ],
-    waMsg: "Hi BrandHeist! I just requested a free audit. Looking forward to the results!",
-  },
-  contact: {
-    tag: "Message Received",
-    title: "Message received.",
-    body: "Someone from the crew will get back to you shortly. We're usually pretty quick about it.",
-    steps: [
-      "We read your message carefully",
-      "We match you with the right crew member",
-      "You hear back within a few business hours",
-    ],
-    waMsg: "Hi BrandHeist! I just sent a message through the website. Let's connect!",
+    waMsg: "Hi BrandHeist! I just requested a Diwali plan. Looking forward to it!",
   },
   newsletter: {
     tag: "Newsletter Subscribed",
@@ -45,8 +34,8 @@ const CONFIG: Record<string, Cfg> = {
 
 export default function ThankYouContent() {
   const params = useSearchParams();
-  const key = params.get("form") || "contact";
-  const d = CONFIG[key] || CONFIG.contact;
+  const key = params.get("form") || "audit";
+  const d = CONFIG[key] || CONFIG.audit;
 
   useEffect(() => {
     track("form_submission_complete", { form_type: key, page_title: document.title });
@@ -112,7 +101,7 @@ export default function ThankYouContent() {
           <a
             href={`${site.whatsapp}?text=${encodeURIComponent(d.waMsg)}`}
             target="_blank" rel="noopener noreferrer"
-            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-[#25d366] px-7 font-black text-white shadow-lg shadow-[#25d366]/30 transition hover:brightness-110 hover:-translate-y-0.5"
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-[#25d366] px-7 font-black text-white shadow-[0_2px_10px_rgba(37,211,102,0.15)] transition hover:brightness-105 hover:-translate-y-0.5"
           >
             <BsWhatsapp /> Chat on WhatsApp
           </a>

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { BsArrowRight } from "react-icons/bs";
 import ThankYouContent from "./ThankYouContent";
 
 export const metadata: Metadata = {
@@ -25,9 +24,7 @@ export default function ThankYouPage() {
                 <span className="text-accent">Heist</span>
               </span>
             </Link>
-            <Link href="/#get-free-audit" className="hidden items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-extrabold text-contrast hover:brightness-110 xl:inline-flex">
-              Free Website Audit <BsArrowRight />
-            </Link>
+            {/* No "request" CTA here: the visitor has just completed that action */}
           </div>
         </div>
       </header>

@@ -97,7 +97,7 @@ export const LimelightNav = ({
         return item.dropdown ? (
           <div key={item.id} className="group relative flex h-full items-center">
             {link}
-            <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+            <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
               {item.dropdown}
             </div>
           </div>
@@ -106,16 +106,15 @@ export const LimelightNav = ({
         );
       })}
 
+      {/* Slim underline just beneath the active label (label width), with a faint glow.
+          Sits with the text it marks instead of floating at the top edge of the bar. */}
       <div
         ref={limelightRef}
-        className={`pointer-events-none absolute top-2 z-10 h-[2px] rounded-full bg-primary shadow-[0_1px_10px_rgb(var(--primary)/0.5)] ${
+        className={`pointer-events-none absolute bottom-2 z-10 h-[2px] rounded-full bg-primary shadow-[0_0_8px_rgb(var(--primary)/0.45)] ${
           spotlightHidden ? "opacity-0" : "opacity-100"
-        } ${isReady ? "transition-[left,width,opacity] duration-300 ease-in-out" : "transition-opacity duration-200"}`}
+        } ${isReady ? "transition-[left,width,opacity] duration-300 ease-out" : "transition-opacity duration-200"}`}
         style={{ left: "-999px" }}
-      >
-        {/* soft glow drop — label width, no hard edges */}
-        <div className="absolute left-0 top-[2px] h-8 w-full bg-gradient-to-b from-primary/20 to-transparent blur-[3px]" />
-      </div>
+      />
     </nav>
   );
 };

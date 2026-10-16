@@ -4,29 +4,35 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Post } from "@/content/blog/posts";
 
-const FILTERS = ["All", "SEO", "D2C Growth", "Performance", "Design"];
-
 export default function BlogGrid({ posts }: { posts: Post[] }) {
+  // Only offer categories that actually have posts — no filter should lead to an
+  // empty page. With a single category, filtering adds nothing, so hide the bar.
+  const categories = [...new Set(posts.map((p) => p.categoryLabel))];
+  const filters = ["All", ...categories];
   const [filter, setFilter] = useState("All");
   const shown = posts.filter((p) => filter === "All" || p.categoryLabel === filter);
 
   return (
     <>
-      <div className="blog-filters">
-        {FILTERS.map((f) => (
-          <button
-            key={f}
-            className={`blog-filter-btn${filter === f ? " active" : ""}`}
-            onClick={() => setFilter(f)}
-          >
-            {f}
-          </button>
-        ))}
-      </div>
+      {categories.length > 1 && (
+        <div className="blog-filters">
+          {filters.map((f) => (
+            <button
+              key={f}
+              type="button"
+              aria-pressed={filter === f}
+              className={`blog-filter-btn${filter === f ? " active" : ""}`}
+              onClick={() => setFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {shown.map((p) => (
-          <Link key={p.slug} href={`/blog/${p.slug}/`} className="text-decoration-none d-block h-100" aria-label={`Read: ${p.title}`}>
+          <Link key={p.slug} href={`/blog/${p.slug}/`} className="block h-full" aria-label={`Read: ${p.title}`}>
             <article className="blog-card">
               <div className="blog-card-cover">
                 <div className="blog-card-cover-gradient" style={{ background: p.cardGradient }}>

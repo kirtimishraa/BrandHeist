@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: post.canonical,
       title: post.ogTitle,
       description: post.ogDescription,
-      images: ["https://www.brandheist.agency/assets/img/og-cover.jpg"],
+      images: [{ url: "https://www.brandheist.agency/assets/img/og-cover.jpg", width: 1200, height: 630, alt: "BrandHeist, digital marketing agency in Mumbai: your customers are already searching, we make sure they find you first" }],
     },
     twitter: { card: "summary_large_image" },
   };

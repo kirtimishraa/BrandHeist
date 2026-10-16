@@ -10,30 +10,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background-color)",
-        surface: "var(--surface-color)",
-        "surface-soft": "var(--surface-soft)",
         heading: "var(--heading-color)",
-        body: "var(--default-color)",
         contrast: "var(--contrast-color)",
-        accent: "var(--accent-color)", // gold #f4b63d
-        "accent-2": "var(--accent-2)", // teal #30d5c8
-        "accent-3": "var(--accent-3)", // coral #ff6a4a
-        // shadcn/ui tokens (mapped to theme, alpha-enabled)
+        // alpha-enabled so modifiers like border-accent/40 generate CSS
+        accent: "rgb(var(--accent-rgb) / <alpha-value>)", // gold #f4b63d
+        "accent-2": "rgb(var(--accent-2-rgb) / <alpha-value>)", // teal #30d5c8
+        "accent-3": "rgb(var(--accent-3-rgb) / <alpha-value>)", // coral #ff6a4a
+        // alpha-enabled tokens used by the nav (limelight)
         foreground: "rgb(var(--foreground) / <alpha-value>)",
-        card: "rgb(var(--card) / <alpha-value>)",
-        "card-foreground": "rgb(var(--card-foreground) / <alpha-value>)",
         primary: "rgb(var(--primary) / <alpha-value>)",
-        "primary-foreground": "rgb(var(--primary-foreground) / <alpha-value>)",
-        secondary: "rgb(var(--secondary) / <alpha-value>)",
-        "secondary-foreground": "rgb(var(--secondary-foreground) / <alpha-value>)",
-        border: "rgb(var(--border) / <alpha-value>)",
-        ring: "rgb(var(--ring) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         heading: ["var(--font-bricolage)", "var(--font-inter)", "sans-serif"],
         nav: ["var(--font-manrope)", "var(--font-inter)", "sans-serif"],
+        hand: ["var(--font-hand)", "cursive"], // footer sign-off only
       },
     },
   },

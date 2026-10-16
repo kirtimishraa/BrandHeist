@@ -17,7 +17,6 @@ export const site = {
   },
   web3forms: {
     audit: "48eb82f6-6e91-4b78-a06a-0803116957bf",
-    contact: "ed43a4a4-cf28-4563-88eb-6fbb096414d6",
     newsletter: "cfec9d4c-578b-4394-b248-1131a7cda767",
   },
 };
@@ -84,6 +83,7 @@ export const clients: { src: string; alt: string }[] = [
   { src: "/assets/img/clients/moreys.webp", alt: "Moreys client logo" },
   { src: "/assets/img/clients/netflix.png", alt: "Netflix client logo" },
   { src: "/assets/img/clients/ocdc.png", alt: "OCDC client logo" },
+  { src: "/assets/img/clients/organic-wisdom.webp", alt: "Organic Wisdom client logo" },
   { src: "/assets/img/clients/organon.svg", alt: "Organon client logo" },
   { src: "/assets/img/clients/painting-drive.png", alt: "Painting Drive client logo" },
   { src: "/assets/img/clients/toyota.png", alt: "Toyota client logo" },

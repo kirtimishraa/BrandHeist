@@ -1,11 +1,20 @@
-import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter, Manrope } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Bricolage_Grotesque, Caveat, Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site-data";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
+// Handwritten font for the footer's cheeky sign-off only. Not preloaded: it sits at the
+// very bottom of the page, so it shouldn't compete with the fonts above the fold.
+const caveat = Caveat({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-hand", display: "swap", preload: false });
+
+// Dark browser chrome / overscroll area on mobile, matching the page background.
+export const viewport: Viewport = {
+  themeColor: "#080806",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.brandheist.agency"),
@@ -29,19 +38,19 @@ export const metadata: Metadata = {
     title: "BrandHeist - Best Digital Marketing Agency in Mumbai",
     description:
       "Your customers are already searching. BrandHeist makes sure they find your brand first with SEO, D2C growth, and performance marketing.",
-    images: ["https://www.brandheist.agency/assets/img/og-cover.jpg"],
+    images: [{ url: "https://www.brandheist.agency/assets/img/og-cover.jpg", width: 1200, height: 630, alt: "BrandHeist, digital marketing agency in Mumbai: your customers are already searching, we make sure they find you first" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "BrandHeist - Digital Marketing Agency Mumbai",
     description: "Razor-sharp SEO, D2C growth, and performance marketing that converts.",
-    images: ["https://www.brandheist.agency/assets/img/og-cover.jpg"],
+    images: [{ url: "https://www.brandheist.agency/assets/img/og-cover.jpg", width: 1200, height: 630, alt: "BrandHeist, digital marketing agency in Mumbai: your customers are already searching, we make sure they find you first" }],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${bricolage.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${inter.variable} ${bricolage.variable} ${manrope.variable} ${caveat.variable}`}>
       <head>
         {/* Google Tag Manager — high in <head> (GA4 is configured inside the GTM container) */}
         <script

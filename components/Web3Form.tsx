@@ -2,18 +2,17 @@
 
 import { useState, type ReactNode } from "react";
 import { track } from "@/lib/analytics";
+import { site } from "@/content/site-data";
 
-type FormName = "get-audit" | "contact-us" | "newsletter";
+type FormName = "get-audit" | "newsletter";
 
 const FORM_TYPE_MAP: Record<FormName, string> = {
   "get-audit": "audit",
-  "contact-us": "contact",
   newsletter: "newsletter",
 };
 
 const GA_EVENT_MAP: Record<FormName, string> = {
   "get-audit": "audit_form_submit",
-  "contact-us": "message_form_submit",
   newsletter: "newsletter_signup",
 };
 
@@ -61,7 +60,12 @@ export default function Web3Form({
       }
     } catch (err) {
       setState("error");
-      setErrorMsg(err instanceof Error ? err.message : "Connection error. Check your internet and try again.");
+      // Network failures surface as a TypeError ("Failed to fetch") — say it plainly.
+      setErrorMsg(
+        err instanceof TypeError || !(err instanceof Error)
+          ? "We couldn't reach our server. Check your internet connection and try again."
+          : err.message
+      );
     }
   }
 
@@ -72,9 +76,23 @@ export default function Web3Form({
         {children}
       </fieldset>
 
-      {state === "loading" && <div className="form-msg loading mt-3">Loading</div>}
-      {state === "error" && <div className="form-msg error mt-3">{errorMsg}</div>}
-      {state === "sent" && <div className="form-msg sent mt-3">{sentMessage}</div>}
+      {/* Immediate feedback (well under 400ms): fields lock and a status line appears */}
+      {state === "loading" && (
+        <div role="status" className="form-msg loading mt-3 flex items-center justify-center gap-2.5">
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-accent" aria-hidden="true" />
+          Sending…
+        </div>
+      )}
+      {state === "error" && (
+        <div role="alert" className="form-msg error mt-3">
+          {errorMsg} Your details are still filled in, so just press the button again, or{" "}
+          <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+            message us on WhatsApp
+          </a>
+          .
+        </div>
+      )}
+      {state === "sent" && <div role="status" className="form-msg sent mt-3">{sentMessage}</div>}
     </form>
   );
 }

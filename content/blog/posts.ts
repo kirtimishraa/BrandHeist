@@ -73,9 +73,9 @@ export const posts: Post[] = [
     ],
     sidebarCta: {
       strong: "Is AI eating your traffic?",
-      p: "Get a free audit - we'll show you exactly where you're losing visibility and hand you a recovery plan.",
+      p: "Tell us about your business - we'll show you where you're losing visibility and send a plan to win it back this Diwali.",
       href: "/#get-free-audit",
-      label: "Get Free Audit",
+      label: "Get My Diwali Plan",
     },
   },
   {
@@ -116,9 +116,9 @@ export const posts: Post[] = [
     ],
     sidebarCta: {
       strong: "Traffic dropped after March 2026?",
-      p: "Get a free audit - we'll check your trust signals and hand you a prioritised recovery plan.",
+      p: "Tell us about your business - we'll check your trust signals and send a prioritised plan to win back visibility this Diwali.",
       href: "/#get-free-audit",
-      label: "Get Free Audit",
+      label: "Get My Diwali Plan",
     },
   },
 ];

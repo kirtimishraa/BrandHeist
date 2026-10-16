@@ -3,6 +3,7 @@ import { site } from "@/content/site-data";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
+import AuditPopup from "@/components/AuditPopup";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -35,6 +36,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <main className="main">{children}</main>
       <Footer />
       <FloatingButtons />
+      <AuditPopup />
     </>
   );
 }
