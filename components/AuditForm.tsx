@@ -6,11 +6,11 @@ import Web3Form from "@/components/Web3Form";
 // so nobody sees red before they've typed anything. Vertical padding is set per variant;
 // text stays 16px so iPhones don't zoom in on focus.
 const inputClass =
-  "peer w-full rounded-xl border border-transparent bg-white/[0.06] px-4 text-heading placeholder:text-[#fffaf0]/35 transition-[border-color,box-shadow,background-color] duration-200 focus:border-accent/20 focus:bg-white/[0.08] focus:outline-none focus:ring-4 focus:ring-accent/[0.06] [&:user-invalid]:border-accent-3/50";
+  "peer w-full rounded-xl border border-transparent bg-white/6 px-4 text-heading placeholder:text-[#fffaf0]/35 transition-[border-color,box-shadow,background-color] duration-200 focus:border-accent/20 focus:bg-white/8 focus:outline-hidden focus:ring-4 focus:ring-accent/6 user-invalid:border-accent-3/50";
 
 const labelClass = "mb-1.5 block text-[13px] font-medium text-[#fffaf0]/75";
-const hintClass = "mt-1.5 block text-xs text-[#fffaf0]/45 peer-[:user-invalid]:hidden";
-const errorClass = "mt-1.5 hidden text-xs text-accent-3 peer-[:user-invalid]:block";
+const hintClass = "mt-1.5 block text-xs text-[#fffaf0]/45 peer-user-invalid:hidden";
+const errorClass = "mt-1.5 hidden text-xs text-accent-3 peer-user-invalid:block";
 
 function Field({
   label,

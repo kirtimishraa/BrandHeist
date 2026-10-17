@@ -59,11 +59,11 @@ function InfoItem({ Icon, title, value, href, external, event }: Item) {
       </span>
       <span className="min-w-0">
         <span className="block font-heading text-base font-bold text-heading">{title}</span>
-        <span className="block break-words text-[#fffaf0]/70 transition-colors group-hover:text-accent">{value}</span>
+        <span className="block wrap-break-word text-[#fffaf0]/70 transition-colors group-hover:text-accent">{value}</span>
       </span>
     </>
   );
-  const box = "flex h-full items-start gap-4 rounded-xl bg-white/[0.03] p-5";
+  const box = "flex h-full items-start gap-4 rounded-xl bg-white/3 p-5";
 
   // Whole card is the tap target when it does something.
   return href ? (
@@ -71,7 +71,7 @@ function InfoItem({ Icon, title, value, href, external, event }: Item) {
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       onClick={() => event && track(event, { link_url: href, link_location: "talk" })}
-      className={`group ${box} transition-colors hover:bg-white/[0.06]`}
+      className={`group ${box} transition-colors hover:bg-white/6`}
     >
       {body}
     </a>

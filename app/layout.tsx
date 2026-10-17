@@ -2,6 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Caveat, Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site-data";
+import MotionProvider from "@/components/MotionProvider";
+import { BLOG_THEME_KEY } from "@/lib/blog-theme";
+
+// Sets the blog post light/dark theme (light unless the reader chose dark) before first paint, so there's no flash.
+// Lives here (not in the blogs layout) so it never re-renders on client navigation. Only affects individual posts (.blog-post-body).
+const blogThemeScript = `try{var t=localStorage.getItem("${BLOG_THEME_KEY}");if(t!=="light"&&t!=="dark")t="light";document.documentElement.dataset.blogTheme=t}catch(e){}`;
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const bricolage = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", display: "swap" });
@@ -48,10 +54,12 @@ export const metadata: Metadata = {
   },
 };
 
+// suppressHydrationWarning: the /blogs theme script sets data-blog-theme on <html> before React hydrates.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${bricolage.variable} ${manrope.variable} ${caveat.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${bricolage.variable} ${manrope.variable} ${caveat.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: blogThemeScript }} />
         {/* Google Tag Manager — high in <head> (GA4 is configured inside the GTM container) */}
         <script
           dangerouslySetInnerHTML={{
@@ -74,7 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

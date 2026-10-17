@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { services, serviceFilters, type ServiceCategory } from "@/content/site-data";
 import Reveal from "@/components/Reveal";
 import { SERVICE_EVENT, takePendingService } from "@/lib/service-nav";
@@ -20,6 +20,9 @@ export default function Menu() {
       const key = (e as CustomEvent<ServiceCategory>).detail;
       setActive(key);
       takePendingService(); // consumed here, don't re-apply on a later mount
+      // The category switch re-lays out the grid during the link's #menu jump, which can leave
+      // the page short of the section; scroll again once the new category has rendered.
+      setTimeout(() => document.getElementById("menu")?.scrollIntoView(), 0);
     };
     window.addEventListener(SERVICE_EVENT, onPick);
     return () => window.removeEventListener(SERVICE_EVENT, onPick);
@@ -36,7 +39,7 @@ export default function Menu() {
   }, [active]);
 
   return (
-    <section id="menu" className="border-y border-white/[0.06] bg-white/[0.025] py-24 md:py-32">
+    <section id="menu" className="border-y border-white/6 bg-white/2.5 py-24 md:py-32">
       <Reveal className="section-title container mx-auto mb-10 max-w-7xl px-4">
         <h2>The Menu</h2>
         <p>What We Serve</p>
@@ -49,7 +52,7 @@ export default function Menu() {
         <Reveal>
           <ul
             ref={filtersRef}
-            className="-mx-4 mb-10 flex gap-2 overflow-x-auto px-4 [mask-image:linear-gradient(90deg,transparent,#000_16px,#000_calc(100%-32px),transparent)] [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 sm:[mask-image:none] [&::-webkit-scrollbar]:hidden"
+            className="-mx-4 mb-10 flex gap-2 overflow-x-auto px-4 mask-[linear-gradient(90deg,transparent,#000_16px,#000_calc(100%-32px),transparent)] scrollbar-none sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0 sm:mask-none [&::-webkit-scrollbar]:hidden"
             aria-label="Service filters"
           >
             {serviceFilters.map((f) => (
@@ -62,7 +65,7 @@ export default function Menu() {
                   className={`inline-flex min-h-[44px] items-center whitespace-nowrap rounded-full px-5 text-sm font-semibold transition-colors ${
                     active === f.key
                       ? "bg-accent/15 text-accent"
-                      : "bg-white/[0.04] text-[#fffaf0]/70 hover:bg-white/[0.07] hover:text-heading"
+                      : "bg-white/4 text-[#fffaf0]/70 hover:bg-white/[0.07] hover:text-heading"
                   }`}
                 >
                   {f.label}
@@ -73,25 +76,24 @@ export default function Menu() {
         </Reveal>
 
         {/* Grid — informational cards (not links), so no hover lift that would suggest a click */}
-        <motion.div layout className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
             {shown.map((s, i) => (
-              <motion.div
+              <m.div
                 key={s.title}
-                layout
-                initial={{ opacity: 0, y: 22 }}
+                initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.4, delay: Math.min(i, 8) * 0.05, ease: EASE }}
-                className="rounded-2xl bg-white/[0.03] p-6"
+                transition={{ duration: 0.28, delay: Math.min(i, 8) * 0.04, ease: EASE }}
+                className="rounded-2xl bg-white/3 p-6"
               >
                 <h3 className="font-heading text-lg font-bold text-heading">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#fffaf0]/65">{s.tech}</p>
-              </motion.div>
+              </m.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

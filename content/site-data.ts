@@ -73,7 +73,7 @@ export const menuNav: { label: string; items: string[] }[] = [
 // ── The Flex (client logos) ──────────────────────────────────────────
 export const clients: { src: string; alt: string }[] = [
   { src: "/assets/img/clients/citizen.jpg", alt: "Citizen client logo" },
-  { src: "/assets/img/clients/dattani.jpg", alt: "Dattani client logo" },
+  { src: "/assets/img/clients/dattani.webp", alt: "Dattani client logo" },
   { src: "/assets/img/clients/develearn.svg", alt: "Develearn client logo" },
   { src: "/assets/img/clients/direct-tire.png", alt: "Direct Tire client logo" },
   { src: "/assets/img/clients/first-hawaiian-bank.svg", alt: "First Hawaiian Bank client logo" },
@@ -81,12 +81,12 @@ export const clients: { src: string; alt: string }[] = [
   { src: "/assets/img/clients/lodha.webp", alt: "Lodha client logo" },
   { src: "/assets/img/clients/minerva.png", alt: "Minerva client logo" },
   { src: "/assets/img/clients/moreys.webp", alt: "Moreys client logo" },
-  { src: "/assets/img/clients/netflix.png", alt: "Netflix client logo" },
+  { src: "/assets/img/clients/netflix.webp", alt: "Netflix client logo" },
   { src: "/assets/img/clients/ocdc.png", alt: "OCDC client logo" },
   { src: "/assets/img/clients/organic-wisdom.webp", alt: "Organic Wisdom client logo" },
   { src: "/assets/img/clients/organon.svg", alt: "Organon client logo" },
   { src: "/assets/img/clients/painting-drive.png", alt: "Painting Drive client logo" },
-  { src: "/assets/img/clients/toyota.png", alt: "Toyota client logo" },
+  { src: "/assets/img/clients/toyota.webp", alt: "Toyota client logo" },
 ];
 
 // ── The Arsenal (tech tabs) ──────────────────────────────────────────
@@ -169,11 +169,4 @@ export const services: { title: string; tech: string; category: ServiceCategory 
   { category: "content", title: "Copywriting (Web, Ads, Email)", tech: "Website copy, ad copy, email campaigns, headlines & CTAs, conversion-focused messaging" },
   { category: "content", title: "Content Strategy & Optimization", tech: "Content planning & topic research, content calendars, content audits, content optimization for SEO & conversions, performance-based content improvements" },
   { category: "content", title: "Technical Writing & Documentation", tech: "Product documentation, user guides, knowledge base articles, API/docs (if applicable), onboarding content" },
-];
-
-// ── The Crew ─────────────────────────────────────────────────────────
-export const crew: { name: string; role: string; img: string; linkedin: string; x: string }[] = [
-  { name: "Kirti Mishra", role: "Marketing Specialist", img: "/assets/img/crews/crew-1.jpg", linkedin: "https://www.linkedin.com/in/kirtimishra17", x: "https://x.com/Kirtim108" },
-  { name: "Ayush Mishra", role: "Web Design & Graphics", img: "/assets/img/crews/crew-2.jpg", linkedin: "https://www.linkedin.com/in/ayush", x: "https://x.com/ayush" },
-  { name: "Mandar Patkar", role: "Web Dev & Security", img: "/assets/img/crews/crew-3.jpg", linkedin: "https://www.linkedin.com/in/mandarsh", x: "https://x.com/mandarverse" },
 ];

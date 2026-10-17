@@ -20,7 +20,7 @@ const CONTACT = [
 
 export default function Footer() {
   return (
-    <footer id="footer" className="border-t border-white/[0.06] bg-[#070706]">
+    <footer id="footer" className="border-t border-white/6 bg-[#070706]">
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 gap-12 py-16 md:grid-cols-2 md:gap-16">
           {/* Brand + contact */}
@@ -68,7 +68,7 @@ export default function Footer() {
             <Web3Form name="newsletter" accessKey={site.web3forms.newsletter} sentMessage="Your subscription request has been sent. Thank you!">
               <div className="flex gap-2">
                 <input type="email" name="email" aria-label="Email address" placeholder="Email address" required
-                  className="min-w-0 flex-1 rounded-xl border border-transparent bg-white/[0.06] min-h-[44px] px-4 py-2.5 text-sm text-heading placeholder:text-[#fffaf0]/40 transition-[border-color,box-shadow,background-color] duration-200 focus:border-accent/20 focus:bg-white/[0.08] focus:outline-none focus:ring-4 focus:ring-accent/[0.06]" />
+                  className="min-w-0 flex-1 rounded-xl border border-transparent bg-white/6 min-h-[44px] px-4 py-2.5 text-sm text-heading placeholder:text-[#fffaf0]/40 transition-[border-color,box-shadow,background-color] duration-200 focus:border-accent/20 focus:bg-white/8 focus:outline-hidden focus:ring-4 focus:ring-accent/6" />
                 <input type="submit" value="Subscribe"
                   className="min-h-[44px] cursor-pointer rounded-xl bg-accent px-4 py-2.5 text-sm font-extrabold text-contrast hover:brightness-110" />
               </div>
@@ -77,14 +77,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col-reverse items-center justify-between gap-4 border-t border-white/[0.06] pb-24 pt-6 sm:flex-row sm:pb-6 sm:pr-20">
+        <div className="flex flex-col-reverse items-center justify-between gap-4 border-t border-white/6 pb-24 pt-6 sm:flex-row sm:pb-6 sm:pr-20">
           {/* Sign-off: the site's cheeky side. A handwritten margin note rather
               than legal small print: "red flag" gets a coral highlighter stroke,
               "Marry us" a hand-drawn gold squiggle and links to the plan form (soft CTA). */}
           <div className="text-center sm:text-left">
             <p className="inline-block font-hand text-[26px] font-semibold leading-snug text-[#fffaf0]/85 sm:text-[28px]">
               You read the footer. That&apos;s a <span className="roast-highlight">red flag</span>.{" "}
-              <Link href="/#get-free-audit" className="marry-link whitespace-nowrap font-bold text-accent">
+              <a href="/#get-free-audit" className="marry-link whitespace-nowrap font-bold text-accent">
                 <span className="relative inline-block">
                   Marry us
                   <svg className="marry-squiggle" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
@@ -92,7 +92,7 @@ export default function Footer() {
                   </svg>
                 </span>{" "}
                 <span className="marry-ring inline-block" aria-hidden="true">💍</span>
-              </Link>
+              </a>
             </p>
             <p className="mt-3 text-[13px] text-[#fffaf0]/45">
               &copy; {new Date().getFullYear()} BrandHeist. All rights reserved.
@@ -101,7 +101,7 @@ export default function Footer() {
           <div className="flex gap-2">
             {SOCIALS.map(({ href, Icon, label }) => (
               <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/[0.05] text-[#fffaf0]/60 transition-colors hover:bg-accent hover:text-contrast">
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white/5 text-[#fffaf0]/60 transition-colors hover:bg-accent hover:text-contrast">
                 <Icon />
               </a>
             ))}

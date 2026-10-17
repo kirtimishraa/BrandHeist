@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { BsArrowLeft, BsWhatsapp } from "react-icons/bs";
 import { site } from "@/content/site-data";
 import { track } from "@/lib/analytics";
@@ -44,11 +44,11 @@ export default function ThankYouContent() {
   return (
     <section className="dark-background relative flex min-h-screen items-center justify-center overflow-hidden px-4 pb-24 pt-28">
       <Image src="/assets/img/hero-bg.webp" alt="" aria-hidden fill priority className="object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#080806]/85 via-[#080806]/65 to-[#080806]/85" />
+      <div className="absolute inset-0 bg-linear-to-b/srgb from-[#080806]/85 via-[#080806]/65 to-[#080806]/85" />
 
       <div className="relative z-10 mx-auto max-w-xl text-center">
         {/* Animated checkmark */}
-        <motion.svg
+        <m.svg
           viewBox="0 0 88 88"
           className="mx-auto mb-9 h-24 w-24"
           style={{ filter: "drop-shadow(0 0 22px rgba(244,182,61,0.32))" }}
@@ -57,16 +57,16 @@ export default function ThankYouContent() {
           transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 0.91, 0.36, 1] }}
         >
           <circle cx="44" cy="44" r="42" fill="none" stroke="rgba(244,182,61,0.15)" strokeWidth={2} />
-          <motion.circle
+          <m.circle
             cx="44" cy="44" r="42" fill="none" stroke="var(--accent-color)" strokeWidth={2.2} strokeLinecap="round"
             transform="rotate(-90 44 44)"
             initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.75, delay: 0.3 }}
           />
-          <motion.polyline
+          <m.polyline
             points="22,44 36,57 66,31" fill="none" stroke="var(--accent-color)" strokeWidth={3.2} strokeLinecap="round" strokeLinejoin="round"
             initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.45, delay: 1.0 }}
           />
-        </motion.svg>
+        </m.svg>
 
         <span className="mb-5 inline-block rounded-full bg-accent px-4 py-1.5 text-[11px] font-black uppercase tracking-widest text-contrast">
           {d.tag}
@@ -83,7 +83,7 @@ export default function ThankYouContent() {
             </div>
             <div className="mx-auto mb-11 flex max-w-md flex-col gap-2.5 text-left">
               {d.steps.map((step, i) => (
-                <div key={i} className="flex items-start gap-3.5 rounded-xl border border-white/10 bg-white/[0.055] px-4.5 py-3.5">
+                <div key={i} className="flex items-start gap-3.5 rounded-xl border border-white/10 bg-white/5.5 px-4.5 py-3.5">
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-black text-contrast">
                     {i + 1}
                   </span>
@@ -95,7 +95,7 @@ export default function ThankYouContent() {
         )}
 
         <div className="flex flex-col justify-center gap-3 sm:flex-row">
-          <Link href="/" className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-7 font-black text-heading backdrop-blur transition hover:bg-white/15 hover:-translate-y-0.5">
+          <Link href="/" className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-7 font-black text-heading backdrop-blur-sm transition hover:bg-white/15 hover:-translate-y-0.5">
             <BsArrowLeft /> Back to Home
           </Link>
           <a

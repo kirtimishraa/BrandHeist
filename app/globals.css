@@ -1,6 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* inline: utilities read these variables where they're used, so section-level overrides
+   (e.g. .dark-background / .blog-scope setting --heading-color) still apply, as in v3 */
+@theme inline {
+  --color-heading: var(--heading-color);
+  --color-contrast: var(--contrast-color);
+  --color-accent: rgb(var(--accent-rgb));
+  --color-accent-2: rgb(var(--accent-2-rgb));
+  --color-accent-3: rgb(var(--accent-3-rgb));
+  --color-foreground: rgb(var(--foreground));
+  --color-primary: rgb(var(--primary));
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-bricolage), var(--font-inter), sans-serif;
+  --font-nav: var(--font-manrope), var(--font-inter), sans-serif;
+  --font-hand: var(--font-hand), cursive;
+}
+
+/* `short:` = short portrait phones (e.g. iPhone SE): the hero tightens so it ends above the video's subject. */
+@custom-variant short (@media (orientation: portrait) and (max-height: 700px));
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  /* v4 gives buttons the default cursor; keep v3's pointer */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 /* ── Theme tokens (ported verbatim from original main.css) ───────────── */
 :root {
@@ -35,37 +77,39 @@
   --primary: 244 182 61;          /* accent gold #f4b63d */
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
+@layer base {
+  html,
+  body {
+    overflow-x: hidden;
+  }
 
-/* Dark canvas under the page: without it, over-scrolling (rubber-band / pull past
-   the top or bottom) reveals the browser's default white behind the transparent nav. */
-html {
-  background-color: #080806;
-  color-scheme: dark;
-}
+  /* Dark canvas under the page: without it, over-scrolling (rubber-band / pull past
+     the top or bottom) reveals the browser's default white behind the transparent nav. */
+  html {
+    background-color: #080806;
+    color-scheme: dark;
+  }
 
-body {
-  margin: 0;
-  color: var(--default-color);
-  background: linear-gradient(180deg, #080806 0%, #10100c 48%, #0b0a08 100%);
-  font-family: var(--font-inter), system-ui, sans-serif;
-  line-height: 1.65;
-  text-rendering: optimizeLegibility;
-}
+  body {
+    margin: 0;
+    color: var(--default-color);
+    background: linear-gradient(180deg, #080806 0%, #10100c 48%, #0b0a08 100%);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--heading-color);
-  font-family: var(--font-bricolage), var(--font-inter), sans-serif;
-  font-weight: 700;
-  line-height: 1.08;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+    font-family: var(--font-bricolage), var(--font-inter), sans-serif;
+    font-weight: 700;
+    line-height: 1.08;
+  }
 }
 
 /* ── Section title (Menu / Arsenal / etc.) ──────────────────────────── */
@@ -218,7 +262,7 @@ h6 {
 
 /* Hero entrance — pure CSS so the headline paints before JS hydrates */
 .hero-in {
-  animation: hero-in 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation: hero-in 0.45s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 @keyframes hero-in {
   from { opacity: 0; transform: translateY(28px); }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { BsX } from "react-icons/bs";
 import AuditForm from "@/components/AuditForm";
 import { track } from "@/lib/analytics";
@@ -14,7 +14,7 @@ import { track } from "@/lib/analytics";
 const DELAY_MS = 18000;
 const SCROLL_SHARE = 0.5;
 const SEEN_COOKIE = "bh_popup_seen";
-const isBlogArticle = () => /^\/blog\/[^/]+\/?$/.test(window.location.pathname);
+const isBlogArticle = () => /^\/blogs\/[^/]+\/?$/.test(window.location.pathname);
 
 const FOCUSABLE = 'a[href], button:not([disabled]), input:not([type="hidden"]):not([disabled]), textarea, select, [tabindex]:not([tabindex="-1"])';
 
@@ -97,9 +97,9 @@ export default function AuditPopup() {
   return (
     <AnimatePresence>
       {open && (
-        <motion.div
+        <m.div
           // light, unblurred backdrop so the page stays visible around the card; click it to close
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 p-4"
+          className="fixed inset-0 z-60 flex items-center justify-center bg-black/40 p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -108,7 +108,7 @@ export default function AuditPopup() {
             if (e.target === e.currentTarget) close();
           }}
         >
-          <motion.div
+          <m.div
             ref={dialogRef}
             role="dialog"
             aria-modal="true"
@@ -125,7 +125,7 @@ export default function AuditPopup() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
-            className="thin-scrollbar relative max-h-[90svh] w-full max-w-[22rem] overflow-y-auto overscroll-contain rounded-2xl bg-[#14130f] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.5)] outline-none sm:max-w-2xl sm:rounded-3xl sm:px-10 sm:py-8"
+            className="thin-scrollbar relative max-h-[90svh] w-full max-w-88 overflow-y-auto overscroll-contain rounded-2xl bg-[#14130f] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.5)] outline-hidden sm:max-w-2xl sm:rounded-3xl sm:px-10 sm:py-8"
           >
             <button
               type="button"
@@ -150,8 +150,8 @@ export default function AuditPopup() {
             <div className="mt-4 sm:mt-6">
               <AuditForm variant="popup" source="popup" />
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

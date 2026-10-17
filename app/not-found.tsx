@@ -31,7 +31,7 @@ export default function NotFound() {
         </Link>
         <Link
           href="/#get-free-audit"
-          className="inline-flex h-12 items-center rounded-xl border border-white/20 bg-white/10 px-6 text-[15px] font-bold text-heading transition hover:-translate-y-0.5 hover:bg-white/[0.15]"
+          className="inline-flex h-12 items-center rounded-xl border border-white/20 bg-white/10 px-6 text-[15px] font-bold text-heading transition hover:-translate-y-0.5 hover:bg-white/15"
         >
           Get My Diwali Plan
         </Link>

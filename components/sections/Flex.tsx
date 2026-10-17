@@ -25,13 +25,13 @@ export default function Flex() {
         {ROWS.map((row, r) => (
           <div
             key={r}
-            className="marquee-mask relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]"
+            className="marquee-mask relative overflow-hidden mask-[linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]"
           >
             <div className="marquee-track gap-5 px-3" style={{ animationDuration: "110s", animationDirection: r ? "reverse" : "normal" }}>
               {[...row, ...row].map((c, i) => (
                 <div
                   key={`${c.src}-${i}`}
-                  className="flex h-24 w-44 shrink-0 items-center justify-center rounded-xl bg-white/[0.04] p-5"
+                  className="flex h-24 w-44 shrink-0 items-center justify-center rounded-xl bg-white/4 p-5"
                 >
                   <Image
                     src={c.src}

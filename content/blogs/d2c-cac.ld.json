@@ -1,0 +1,155 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why Meta Ads Stopped Working for Your D2C Brand (And What Indian Founders Are Doing Instead in 2026)",
+    "description": "Meta CPMs in India are up 40-60% since 2023 and average D2C CAC is up 35% year-over-year. The budget mix, conversion fixes and 90-day plan profitable Indian D2C brands are using in 2026.",
+    "image": [
+      {
+        "@type": "ImageObject",
+        "url": "https://www.brandheist.agency/assets/img/blogs/meta-cpm-trend-india-2023-2026-1520w.webp",
+        "width": 1520,
+        "height": 855,
+        "caption": "Meta CPM trend in India, indexed to 2023. The cost of reaching the same audience is up roughly 55% in three years. Sources: Distk (2026), Razorpay (2025), BrandHeist client audits. Year-by-year curve is directional."
+      },
+      {
+        "@type": "ImageObject",
+        "url": "https://www.brandheist.agency/assets/img/blogs/d2c-marketing-budget-mix-india-2026-1520w.webp",
+        "width": 1520,
+        "height": 848,
+        "caption": "Recommended budget mix for Indian D2C brands in 2026. Based on BrandHeist client work and published industry guidance from Distk, Razorpay, and Balistro Consultancy."
+      },
+      {
+        "@type": "ImageObject",
+        "url": "https://www.brandheist.agency/assets/img/blogs/meta-cpm-trend-india-2026-og.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Kirti Mishra",
+      "jobTitle": "Marketing Specialist",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "BrandHeist",
+        "url": "https://www.brandheist.agency"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/kirtimishra17"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "BrandHeist",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.brandheist.agency/assets/img/brand-logo.jpg"
+      }
+    },
+    "datePublished": "2026-07-28",
+    "dateModified": "2026-10-17",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.brandheist.agency/blogs/d2c-cac-meta-cpm-india-2026/"
+    },
+    "articleSection": "D2C Growth",
+    "inLanguage": "en-IN",
+    "wordCount": 3644,
+    "keywords": "Meta CPM India, Meta ads not working, reduce CAC D2C, D2C India 2026, customer acquisition cost India, D2C marketing budget mix, LTV CAC ratio, MER marketing efficiency ratio, server-side tracking CAPI, D2C conversion rate India"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.brandheist.agency/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blogs",
+        "item": "https://www.brandheist.agency/blogs/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Why Meta Ads Stopped Working for D2C Brands in India",
+        "item": "https://www.brandheist.agency/blogs/d2c-cac-meta-cpm-india-2026/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a good CAC for a D2C brand in India in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on category and LTV. As a rough guide: Fashion CAC ₹300-600 with 3-5x ROAS is healthy. Beauty and skincare ₹500-900 with 2.5-4x ROAS works if LTV is strong. F&B needs sub-₹400 CAC with 4x+ ROAS due to thinner margins. The more useful metric is LTV to CAC ratio: aim for 3:1 or better. A ₹1,000 CAC is fine if lifetime value is ₹3,000+, and a problem if LTV is ₹1,200."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I move budget away from Meta ads entirely?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Meta still works, just not at 70-80 percent of your budget. A working mix for most Indian D2C brands in 2026 is roughly 40-50 percent Meta, 15-25 percent Google (Shopping and Search), 15-20 percent organic content, 10-15 percent WhatsApp and email retention, and 5-10 percent community and UGC. Cutting Meta entirely crashes revenue faster than new channels can replace it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did my Meta ROAS drop even though nothing on my side changed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Four things are happening at once. Meta CPMs in India are up 40-60 percent since 2023 due to advertiser competition and iOS privacy changes. Meta's targeting is less precise after losing cross-app tracking. Your creative frequency is probably too high (same ad being shown too often). And most brands don't have server-side tracking set up properly, so Meta is optimising on incomplete data. All four stack on top of each other. Nothing on your side needs to change for ROAS to drop."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate my LTV properly for a D2C brand?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The simple formula is: (Average Order Value) × (Purchase Frequency per Year) × (Average Customer Lifetime in Years). But for D2C brands with under 24 months of data, use 90-day repeat rate as a proxy. If 30 percent of first-time buyers make a second purchase within 90 days and average two more purchases in year one, LTV is roughly 2.6x AOV. This is directional, not perfect, but it lets you make decisions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is SEO even worth it for D2C brands in the age of AI Overviews?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "More worth it than ever. AI Overviews cite sources. If your content ranks and carries strong trust signals, you get cited in AI answers, which builds brand recognition even on zero-click searches. Mamaearth, Wakefit, and Dot & Key all pull significant organic acquisition through SEO content that now also feeds AI systems. The catch is timing: meaningful traffic takes 6-9 months to build, so starting late means waiting longer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the single biggest CAC reduction lever for a small D2C brand?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Conversion rate on the product page and checkout. Nearly every brand we audit is sending Meta traffic to a page converting at 1.4-1.8 percent that should be converting at 2.5-3 percent. Double the conversion rate and CAC roughly halves without touching ad spend. The usual culprits: mobile load speed, weak product page copy, missing review photos, and checkout options (COD, UPI, no-cost EMI). Unglamorous. Highest impact."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Marketing Efficiency Ratio (MER) and why are people using it instead of ROAS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MER is total revenue divided by total marketing spend, across all channels. ROAS is per-platform (usually Meta or Google). The problem with ROAS is that platforms increasingly take credit for conversions that other channels helped drive. MER captures the blended reality. A brand with 2x Meta ROAS and 4x MER is healthier than a brand with 4x Meta ROAS and 2.5x MER, because MER shows what your marketing is actually producing at the business level."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long before I see results from fixing this stuff?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Conversion rate fixes and server-side tracking: 2-4 weeks. Retention improvements: 6-12 weeks to see LTV impact. Organic content and SEO: 6-9 months for meaningful traffic. Meta budget reallocation: usually 4-8 weeks to see the new mix stabilise. Nothing is instant, but the ordering matters. Fix conversion and tracking first because they show up fastest."
+        }
+      }
+    ]
+  }
+]

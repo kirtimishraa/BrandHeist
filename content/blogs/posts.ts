@@ -5,14 +5,16 @@ export type TocItem = { href: string; label: string };
 
 export type Post = {
   slug: string;
-  bodyFile: string; // in content/blog/
-  ldFile: string; // in content/blog/
+  bodyFile: string; // in content/blogs/
+  ldFile: string; // in content/blogs/
   // <head> metadata
   metaTitle: string;
   metaDescription: string;
   canonical: string;
   ogTitle: string;
   ogDescription: string;
+  ogImage?: { url: string; alt: string }; // 1200x630 share card; falls back to the site-wide og-cover
+  images?: string[]; // in-article images (site paths), listed in the sitemap for image search
   // title block
   title: string;
   categoryLabel: string;
@@ -28,12 +30,55 @@ export type Post = {
   cardGradient: string;
   cardExcerpt: string;
   cardReadLabel: string;
-  // sidebar
   toc: TocItem[];
-  sidebarCta: { strong: string; p: string; href: string; label: string };
 };
 
 export const posts: Post[] = [
+  {
+    slug: "d2c-cac-meta-cpm-india-2026",
+    bodyFile: "d2c-cac.body.html",
+    ldFile: "d2c-cac.ld.json",
+    metaTitle: "Why Meta Ads Stopped Working for D2C Brands in India (2026) - BrandHeist",
+    metaDescription:
+      "Meta CPMs in India are up 40-60% since 2023 and D2C CAC is up 35% a year. Real numbers, the 2026 budget mix and a 90-day plan to cut CAC without spending more.",
+    canonical: "https://www.brandheist.agency/blogs/d2c-cac-meta-cpm-india-2026/",
+    ogTitle: "Why Meta Ads Stopped Working for Your D2C Brand (And What Indian Founders Are Doing Instead)",
+    ogDescription:
+      "Meta CPMs up 40-60% since 2023. CAC up 35% a year. The budget mix and 90-day plan profitable Indian D2C brands are using in 2026.",
+    ogImage: {
+      url: "/assets/img/blogs/meta-cpm-trend-india-2026-og.jpg",
+      alt: "Meta CPM trend in India, indexed to 2023: up 55% by 2026",
+    },
+    images: [
+      "/assets/img/blogs/meta-cpm-trend-india-2023-2026-1520w.webp",
+      "/assets/img/blogs/d2c-marketing-budget-mix-india-2026-1520w.webp",
+    ],
+    title: "Why Meta Ads Stopped Working for Your D2C Brand (And What Indian Founders Are Doing Instead in 2026)",
+    categoryLabel: "D2C Growth",
+    categoryPill: "coral",
+    categoryIcon: "bi bi-graph-up-arrow",
+    dateISO: "2026-07-28",
+    dateLabel: "July 2026",
+    readTime: "15 min read",
+    words: "3,600+ words",
+    author: "Kirti Mishra",
+    cardIcon: "bh-icon-meta", // outline Meta mark, defined in app/blog.css
+    cardGradient: "linear-gradient(135deg, #1a0f0b 0%, #140d09 50%, #121008 100%)",
+    cardExcerpt:
+      "Meta CPMs are up 40-60% since 2023 and CAC keeps climbing. The budget mix, CRO fixes and 90-day plan profitable Indian D2C brands are using now.",
+    cardReadLabel: "15 min",
+    toc: [
+      { href: "#real-numbers", label: "The Real Numbers" },
+      { href: "#why-it-happened", label: "Why It Happened" },
+      { href: "#whats-working", label: "What's Working Now" },
+      { href: "#big-brands", label: "How the Big Brands Did It" },
+      { href: "#90-day-plan", label: "A 90-Day Plan" },
+      { href: "#what-not-to-do", label: "What NOT to Do" },
+      { href: "#what-vcs-look-at", label: "What VCs Look At" },
+      { href: "#where-this-leaves-you", label: "Where This Leaves You" },
+      { href: "#faq", label: "FAQ" },
+    ],
+  },
   {
     slug: "ai-overviews-zero-click-search-2026",
     bodyFile: "ai-overviews.body.html",
@@ -41,7 +86,7 @@ export const posts: Post[] = [
     metaTitle: "AI Overviews & Zero-Click Search: What's Killing Your Traffic in 2026 - BrandHeist",
     metaDescription:
       "Your rankings held. Your traffic didn't. Here's why AI Overviews are draining clicks, who's getting hit hardest, and the 5 strategies actually working in 2026.",
-    canonical: "https://www.brandheist.agency/blog/ai-overviews-zero-click-search-2026/",
+    canonical: "https://www.brandheist.agency/blogs/ai-overviews-zero-click-search-2026/",
     ogTitle: "AI Overviews & Zero-Click Search: What's Killing Your Traffic in 2026",
     ogDescription:
       "Your rankings held. Your traffic didn't. 5 strategies that actually work in the zero-click era.",
@@ -71,12 +116,6 @@ export const posts: Post[] = [
       { href: "#bottom-line", label: "The Bottom Line" },
       { href: "#faq", label: "FAQ" },
     ],
-    sidebarCta: {
-      strong: "Is AI eating your traffic?",
-      p: "Tell us about your business - we'll show you where you're losing visibility and send a plan to win it back this Diwali.",
-      href: "/#get-free-audit",
-      label: "Get My Diwali Plan",
-    },
   },
   {
     slug: "eeat-2026-small-brands-trust-signals",
@@ -86,7 +125,7 @@ export const posts: Post[] = [
       "E-E-A-T for Small Indian Brands in 2026: What Actually Works (Without a Big Budget) - BrandHeist",
     metaDescription:
       "Google's March 2026 update reshuffled 79.5% of top-3 positions. Trust is now the ranking. Here's the honest, practical E-E-A-T checklist we give small Indian brands - no fluff, no paid tools required.",
-    canonical: "https://www.brandheist.agency/blog/eeat-2026-small-brands-trust-signals/",
+    canonical: "https://www.brandheist.agency/blogs/eeat-2026-small-brands-trust-signals/",
     ogTitle: "E-E-A-T for Small Indian Brands: What Actually Works in 2026",
     ogDescription:
       "The trust signals we tell small Indian brands to fix first - before spending a rupee on tools or content.",
@@ -114,12 +153,6 @@ export const posts: Post[] = [
       { href: "#favours-small", label: "Why It Favours Small Brands" },
       { href: "#faq", label: "FAQ" },
     ],
-    sidebarCta: {
-      strong: "Traffic dropped after March 2026?",
-      p: "Tell us about your business - we'll check your trust signals and send a prioritised plan to win back visibility this Diwali.",
-      href: "/#get-free-audit",
-      label: "Get My Diwali Plan",
-    },
   },
 ];
 

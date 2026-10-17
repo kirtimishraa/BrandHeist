@@ -1,0 +1,9 @@
+# Blog moved from /blog to /blogs (301 keeps search rankings). Specific rules first.
+# Old static-site URLs
+/blog/posts/ai-overviews-zero-click-search.html            /blogs/ai-overviews-zero-click-search-2026/   301
+/blog/posts/eeat-2026-small-brands-trust-signals.html      /blogs/eeat-2026-small-brands-trust-signals/  301
+/blog/posts/d2c-cac-meta-cpm-india-2026.html               /blogs/d2c-cac-meta-cpm-india-2026/           301
+/blog/index.html                                           /blogs/                                       301
+# Previous Next.js URLs
+/blog                                                      /blogs/                                       301
+/blog/*                                                    /blogs/:splat                                 301

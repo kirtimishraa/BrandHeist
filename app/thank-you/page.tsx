@@ -34,7 +34,7 @@ export default function ThankYouPage() {
       </Suspense>
 
       {/* Minimal fixed footer */}
-      <footer className="fixed bottom-0 inset-x-0 z-10 border-t border-white/10 bg-[#080806]/70 px-5 py-3 text-center text-[13px] text-[#fffaf0]/50 backdrop-blur">
+      <footer className="fixed bottom-0 inset-x-0 z-10 border-t border-white/10 bg-[#080806]/70 px-5 py-3 text-center text-[13px] text-[#fffaf0]/50 backdrop-blur-sm">
         <p className="m-0">
           &copy; <span className="font-extrabold text-[#fffaf0]/80">BrandHeist</span> &bull;{" "}
           <Link href="/" className="hover:text-accent">Home</Link> &bull;{" "}

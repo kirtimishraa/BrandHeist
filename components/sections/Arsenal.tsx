@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { BsChevronDown } from "react-icons/bs";
 import { arsenal } from "@/content/site-data";
 import Reveal from "@/components/Reveal";
@@ -38,7 +38,7 @@ export default function Arsenal() {
           {arsenal.map((t) => {
             const open = openId === t.id;
             return (
-              <li key={t.id} className={`rounded-xl transition-colors ${open ? "bg-accent/[0.08]" : "bg-white/[0.03]"}`}>
+              <li key={t.id} className={`rounded-xl transition-colors ${open ? "bg-accent/8" : "bg-white/3"}`}>
                 <button
                   type="button"
                   onClick={() => setOpenId(open ? null : t.id)}
@@ -53,18 +53,18 @@ export default function Arsenal() {
                 </button>
                 <AnimatePresence initial={false}>
                   {open && (
-                    <motion.div
+                    <m.div
                       id={`arsenal-${t.id}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: EASE }}
+                      transition={{ duration: 0.22, ease: EASE }}
                       className="overflow-hidden"
                     >
                       <div className="px-5 pb-6">
                         <Details t={t} />
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </li>
@@ -79,7 +79,7 @@ export default function Arsenal() {
               <Tabs.Trigger
                 key={t.id}
                 value={t.id}
-                className="rounded-xl bg-white/[0.03] px-5 py-4 text-left font-nav text-[15px] font-medium text-[#fffaf0]/75 transition hover:bg-white/[0.06] data-[state=active]:bg-accent/[0.12] data-[state=active]:text-heading"
+                className="rounded-xl bg-white/3 px-5 py-4 text-left font-nav text-[15px] font-medium text-[#fffaf0]/75 transition hover:bg-white/6 data-[state=active]:bg-accent/12 data-[state=active]:text-heading"
               >
                 {t.label}
               </Tabs.Trigger>
@@ -88,15 +88,15 @@ export default function Arsenal() {
 
           <div className="lg:col-span-2">
             {arsenal.map((t) => (
-              <Tabs.Content key={t.id} value={t.id} className="focus:outline-none">
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }}
+              <Tabs.Content key={t.id} value={t.id} className="focus:outline-hidden">
+                <m.div
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="rounded-2xl bg-white/[0.03] p-7"
+                  transition={{ duration: 0.25 }}
+                  className="rounded-2xl bg-white/3 p-7"
                 >
                   <Details t={t} />
-                </motion.div>
+                </m.div>
               </Tabs.Content>
             ))}
           </div>

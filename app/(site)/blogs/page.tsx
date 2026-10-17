@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { posts } from "@/content/blog/posts";
+import { posts } from "@/content/blogs/posts";
 import { site } from "@/content/site-data";
-import BlogGrid from "@/components/blog/BlogGrid";
+import BlogGrid from "@/components/blogs/BlogGrid";
 import Web3Form from "@/components/Web3Form";
 
 export const metadata: Metadata = {
   title: "Blogs - BrandHeist Marketing Blog",
   description:
     "Sharp takes on SEO, D2C growth, performance marketing and everything in between. No fluff - just what's actually working right now.",
-  alternates: { canonical: "/blog/" },
+  alternates: { canonical: "/blogs/" },
   openGraph: {
     type: "website",
-    url: "https://www.brandheist.agency/blog/",
+    url: "https://www.brandheist.agency/blogs/",
     title: "Blogs - BrandHeist Marketing Blog",
     description: "Sharp takes on SEO, D2C growth, and performance marketing. No fluff.",
     images: [{ url: "https://www.brandheist.agency/assets/img/og-cover.jpg", width: 1200, height: 630, alt: "BrandHeist, digital marketing agency in Mumbai: your customers are already searching, we make sure they find you first" }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function BlogListingPage() {
   return (
     <>
-      <section className="blog-listing dark-background">
+      <section className="blog-listing">
         <div className="container">
           <h1 className="visually-hidden">
             BrandHeist Blogs - SEO, D2C Growth &amp; Performance Marketing Blog
@@ -30,7 +30,7 @@ export default function BlogListingPage() {
         </div>
       </section>
 
-      <section className="blog-newsletter dark-background">
+      <section className="blog-newsletter">
         <div className="container text-center">
           {/* Width limits were Bootstrap col-* classes (Bootstrap is no longer loaded),
               so the form stretched full width. Tailwind max-widths keep it compact. */}
@@ -38,7 +38,7 @@ export default function BlogListingPage() {
             <span className="blog-hero-eyebrow">Newsletter</span>
             <h2>Get the next one in your inbox</h2>
             <p>No spam, no cadence pressure. We send when we have something actually worth reading.</p>
-            <Web3Form name="newsletter" accessKey={site.web3forms.newsletter} sentMessage="You're in! Talk soon." className="mx-auto max-w-[34rem]">
+            <Web3Form name="newsletter" accessKey={site.web3forms.newsletter} sentMessage="You're in! Talk soon." className="mx-auto max-w-136">
               <div className="newsletter-form">
                 <input type="email" name="email" aria-label="Email address" placeholder="Your email address" required />
                 <input type="submit" value="Subscribe" />
